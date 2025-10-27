@@ -1,3 +1,3 @@
-# timvyve.github.io
-Personal Website
-This is the website for **timothyvyverberg**
+# Welcome, my name is Tim Vyverberg!
+---
+![alt text][profile.jpg]
