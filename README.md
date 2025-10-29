@@ -1,9 +1,9 @@
 <!-- Banner / Hero Image -->
 <p align="center">
-  <img src="https://YOUR-IMAGE-URL.com/banner.png" alt="Banner" width="100%" />
+  <img src="[https://YOUR-IMAGE-URL.com/banner.png](https://stock.adobe.com/search?k=art+banner&asset_id=402304964)" alt="Banner" width="100%" />
 </p>
 
-# Hi, I’m **YOUR NAME** 👋  
+# Hi, I’m **Tim** 👋  
 ### I build things for the web & beyond.
 
 ---
@@ -15,7 +15,7 @@
 ---
 
 ## 🎨 A Bit About Me  
-- 🧑‍💻 I'm a **[Your Job Title / Student / Hobbyist]** passionate about crafting interactive experiences on the web.  
+- 🧑‍💻 I'm a **Computer Science Undergraduate** passionate about crafting interactive experiences on the web.  
 - 🔍 I love working with **(e.g.) HTML, CSS, JavaScript, React**, and exploring emerging tech.  
 - 🚀 I enjoy bringing ideas to life — from small utilities to full-blown websites.  
 - 🎯 Always learning, always building — and always excited for the next challenge.
@@ -67,8 +67,7 @@ This repository is the source for my personal website:
 
 ## 📬 Connect With Me  
 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-YourName-blue?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/yourname)  
-[![Twitter](https://img.shields.io/badge/Twitter-@yourhandle-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://twitter.com/yourhandle)  
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-YourName-blue?style=for-the-badge&logo=linkedin&logoColor=white)](www.linkedin.com/in/tim-vyverberg)  
 [![GitHub](https://img.shields.io/badge/GitHub-@yourusername-black?style=for-the-badge&logo=github&logoColor=white)](https://github.com/yourusername)
 
 > 💬 Feel free to say hello — I’m always up for a chat about tech, ideas, and opportunities.
