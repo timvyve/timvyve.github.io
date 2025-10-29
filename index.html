@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Your Name – Personal Site</title>
+  <meta name="description" content="Portfolio, projects, and contact." />
+  <meta property="og:title" content="Your Name – Personal Site" />
+  <meta property="og:description" content="Portfolio, projects, and contact." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="/social-card.png" />
+  <link rel="icon" href="/favicon.svg" />
+  <style>
+    :root {
+      --bg: #0b0c10;
+      --panel: #121319;
+      --fg: #e9eef2;
+      --muted: #a9b3bd;
+      --brand: #7c5cff;
+      --brand-2: #00d4ff;
+      --card: #151823;
+      --border: #23283b;
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --radius: 18px;
+    }
+    :root.light {
+      --bg: #f7f9fc;
+      --panel: #ffffff;
+      --fg: #0e1116;
+      --muted: #516173;
+      --brand: #5b32ff;
+      --brand-2: #0bbbd6;
+      --card: #ffffff;
+      --border: #e6eaf0;
+      --shadow: 0 10px 30px rgba(10, 20, 40, .08);
+    }
+    * { box-sizing: border-box }
+    html, body { height: 100% }
+    body {
+      margin: 0;
+      font: 16px/1.55 system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji","Segoe UI Emoji";
+      color: var(--fg);
+      background: radial-gradient(1200px 600px at 10% -10%, rgba(124,92,255,.18), transparent 60%),
+                  radial-gradient(800px 400px at 110% 10%, rgba(0,212,255,.18), transparent 60%),
+                  var(--bg);
+    }
+    a { color: inherit; text-decoration: none }
+    .container { max-width: 980px; margin: 0 auto; padding: 28px 20px 80px }
+    header { display: flex; gap: 18px; align-items: center; justify-content: space-between; margin-bottom: 32px }
+    .brand { display: flex; gap: 14px; align-items: center }
+    .avatar { width: 44px; height: 44px; border-radius: 12px; background: linear-gradient(135deg, var(--brand), var(--brand-2)); box-shadow: var(--shadow) }
+    .title { font-weight: 700; letter-spacing: .2px }
+    .muted { color: var(--muted) }
+    .actions { display: flex; gap: 10px }
+    .btn {
+      padding: 10px 14px; border-radius: 12px; border: 1px solid var(--border); background: var(--panel);
+      display: inline-flex; align-items: center; gap: 10px; box-shadow: var(--shadow);
+    }
+    .btn:hover { transform: translateY(-1px); transition: .15s transform }
+    .btn.primary { background: linear-gradient(135deg, var(--brand), var(--brand-2)); color: #fff; border: none }
+
+    .hero { display: grid; grid-template-columns: 1.2fr .8fr; gap: 28px; align-items: center; margin: 20px 0 36px }
+    .hero h1 { font-size: 42px; line-height: 1.1; margin: 0 0 12px }
+    .hero p { margin: 0 0 18px }
+
+    .card { background: linear-gradient(180deg, color-mix(in oklab, var(--card), transparent 10%), var(--card));
+            border: 1px solid var(--border); border-radius: var(--radius); padding: 22px; box-shadow: var(--shadow) }
+
+    .grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 18px }
+    .col-8 { grid-column: span 8 }
+    .col-4 { grid-column: span 4 }
+    @media (max-width: 900px) { .hero { grid-template-columns: 1fr } .col-8, .col-4 { grid-column: span 12 } }
+
+    .pill { display: inline-flex; gap: 8px; align-items: center; padding: 8px 12px; border-radius: 999px; border: 1px solid var(--border); background: var(--panel) }
+    .stack { display: flex; flex-wrap: wrap; gap: 8px }
+    .icon { width: 18px; height: 18px; flex: 0 0 auto }
+
+    h2 { margin: 0 0 14px; font-size: 22px }
+    .projects { display: grid; grid-template-columns: repeat(12, 1fr); gap: 14px }
+    .project { grid-column: span 6; padding: 18px; border-radius: 16px; border: 1px solid var(--border); background: var(--panel) }
+    .project:hover { transform: translateY(-2px); transition: .15s transform }
+    .project h3 { margin: 8px 0 6px; font-size: 18px }
+    .project p { margin: 0 }
+    @media (max-width: 700px) { .project { grid-column: span 12 } }
+
+    footer { margin-top: 36px; display: flex; align-items: center; justify-content: space-between; gap: 10px; color: var(--muted) }
+    .links { display: flex; gap: 10px }
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0 }
+  </style>
+</head>
+<body>
+  <script>
+    // Theme bootstrapping
+    const saved = localStorage.getItem('theme');
+    const prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+    if ((saved === 'light') || (!saved && prefersLight)) document.documentElement.classList.add('light');
+  </script>
+
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="avatar" aria-hidden="true"></div>
+        <div>
+          <div class="title">Your Name</div>
+          <div class="muted">Designer • Developer • Human</div>
+        </div>
+      </div>
+      <nav class="actions">
+        <a class="btn" href="#projects">Projects</a>
+        <a class="btn" href="#about">About</a>
+        <button id="themeToggle" class="btn" title="Toggle theme" aria-label="Toggle theme">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a9 9 0 1 0 9 9c0-1.08-.2-2.1-.57-3A7 7 0 0 1 12 3Z"/></svg>
+          Theme
+        </button>
+        <a class="btn primary" href="mailto:you@example.com">Contact</a>
+      </nav>
+    </header>
+
+    <section class="hero card">
+      <div>
+        <h1>Hi, I'm <span style="background:linear-gradient(135deg,var(--brand),var(--brand-2)); -webkit-background-clip:text; background-clip:text; color:transparent">Your Name</span>.</h1>
+        <p class="muted">I craft delightful web experiences and build useful tools. I enjoy clean design, thoughtful motion, and performance.</p>
+        <div class="stack" style="margin-top:12px">
+          <span class="pill"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l9 4-9 4-9-4 9-4z"/><path d="M3 10l9 4 9-4"/><path d="M3 18l9 4 9-4"/></svg>HTML/CSS/JS</span>
+          <span class="pill"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 18l6-6-6-6"/><path d="M8 6l-6 6 6 6"/></svg>React</span>
+          <span class="pill"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M14.31 8l5.74 9.94"/><path d="M9.69 8h11.48"/><path d="M7.38 12l5.74-9.94"/><path d="M9.69 16L3.95 6.06"/><path d="M14.31 16H2.83"/><path d="M16.62 12l-5.74 9.94"/></svg>TypeScript</span>
+        </div>
+      </div>
+      <div class="card">
+        <h2>Now</h2>
+        <p>Currently exploring <strong>web animation</strong> and <strong>AI-assisted tooling</strong>. Building a tiny SaaS called <em>WidgetCo</em>.</p>
+        <div class="stack" style="margin-top: 10px">
+          <a class="pill" href="https://github.com/yourname" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5a12 12 0 0 0-3.79 23.4c.6.11.82-.26.82-.58v-2.02c-3.34.73-4.04-1.61-4.04-1.61-.55-1.38-1.33-1.75-1.33-1.75-1.09-.75.08-.74.08-.74 1.2.09 1.83 1.24 1.83 1.24 1.07 1.83 2.81 1.3 3.5.99.11-.78.42-1.3.76-1.6-2.66-.3-5.47-1.33-5.47-5.92 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.5.12-3.14 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.3-1.55 3.3-1.23 3.3-1.23.66 1.64.24 2.84.12 3.14.77.84 1.24 1.91 1.24 3.22 0 4.6-2.81 5.62-5.49 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.22.7.82.58A12 12 0 0 0 12 .5Z"/></svg>GitHub</a>
+          <a class="pill" href="https://www.linkedin.com/in/yourname" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM0 8.98h5V24H0zM8.98 8.98h4.78v2.06h.06c.67-1.26 2.3-2.6 4.73-2.6 5.06 0 6 3.33 6 7.67V24h-5v-6.96c0-1.66-.03-3.8-2.32-3.8-2.33 0-2.69 1.82-2.69 3.69V24h-5z"/></svg>LinkedIn</a>
+          <a class="pill" href="/resume.pdf" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6"/></svg>Résumé</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="card">
+      <h2>Selected Projects</h2>
+      <div class="projects">
+        <a class="project" href="#" target="_blank" rel="noopener">
+          <div class="pill" style="margin-bottom:10px"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7h18"/><path d="M3 12h18"/><path d="M3 17h18"/></svg>UI System</div>
+          <h3>Design System Starter</h3>
+          <p class="muted">A token-driven component kit with theming and accessibility baked in.</p>
+        </a>
+        <a class="project" href="#" target="_blank" rel="noopener">
+          <div class="pill" style="margin-bottom:10px"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3h18v18H3z"/><path d="M3 9h18"/></svg>App</div>
+          <h3>WidgetCo</h3>
+          <p class="muted">Tiny SaaS for scheduling lightweight product announcements.</p>
+        </a>
+        <a class="project" href="#" target="_blank" rel="noopener">
+          <div class="pill" style="margin-bottom:10px"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/></svg>Open Source</div>
+          <h3>Animate Utils</h3>
+          <p class="muted">Micro-interaction helpers in 2 kB, zero dependencies.</p>
+        </a>
+        <a class="project" href="#" target="_blank" rel="noopener">
+          <div class="pill" style="margin-bottom:10px"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10H3"/><path d="M21 6H3"/><path d="M21 14H3"/><path d="M21 18H3"/></svg>Tooling</div>
+          <h3>Perf Probe</h3>
+          <p class="muted">A simple profiler that surfaces LCP and layout shifts.</p>
+        </a>
+      </div>
+    </section>
+
+    <section id="about" class="grid" style="margin-top:18px">
+      <article class="col-8 card">
+        <h2>About</h2>
+        <p>Hello! I'm a multi‑disciplinary maker who loves building crisp interfaces and fast sites. I value clarity, kindness, and curiosity.</p>
+        <p>Previously at <strong>Company</strong>. Studied <strong>Something</strong> at <strong>Somewhere</strong>. Outside work I'm into coffee, travel, and bikes.</p>
+      </article>
+      <aside class="col-4 card">
+        <h2>Contact</h2>
+        <ul style="list-style:none; padding:0; margin:0; display:grid; gap:8px">
+          <li><a class="pill" href="mailto:you@example.com"><span aria-hidden="true">📬</span> Email</a></li>
+          <li><a class="pill" href="https://x.com/yourhandle" target="_blank" rel="noopener"><span aria-hidden="true">𝕏</span> Twitter / X</a></li>
+          <li><a class="pill" href="https://cal.com/yourname/30min" target="_blank" rel="noopener"><span aria-hidden="true">📅</span> Book a chat</a></li>
+        </ul>
+      </aside>
+    </section>
+
+    <footer>
+      <div>© <span id="year"></span> Your Name</div>
+      <div class="links">
+        <a class="muted" href="/feed.xml">RSS</a>
+        <span class="muted">•</span>
+        <a class="muted" href="/now">/now</a>
+        <span class="muted">•</span>
+        <a class="muted" href="/uses">/uses</a>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    document.getElementById('themeToggle').addEventListener('click', () => {
+      const light = document.documentElement.classList.toggle('light');
+      localStorage.setItem('theme', light ? 'light' : 'dark');
+    });
+  </script>
+</body>
+</html>
