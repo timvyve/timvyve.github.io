@@ -46,7 +46,7 @@
                   var(--bg);
     }
     a { color: inherit; text-decoration: none }
-    .container { max-width: 980px; margin: 0 auto; padding: 28px 20px 80px; min-height: 140vh; }
+    .container { max-width: 980px; margin: 0 auto; padding: 28px 20px 80px; min-height: 150vh; }
 
     /* Buttons */
     .btn { padding: 10px 14px; border-radius: 12px; border: 1px solid var(--border); background: var(--panel); display: inline-flex; align-items: center; gap: 10px; box-shadow: var(--shadow); cursor: pointer }
@@ -67,7 +67,7 @@
 
     h2 { margin: 0 0 14px; font-size: 22px }
 
-    footer { margin-top: 36px; display: flex; align-items: center; justify-content: space-between; gap: 10px; color: var(--muted) }
+    footer { margin-top: 36px; display: flex; align-items: center; justify-content: center; color: var(--muted) }
 
     /* Floating theme toggle */
     .fab-theme { position: fixed; right: 16px; bottom: 16px; z-index: 20 }
@@ -75,6 +75,29 @@
     /* Contact list */
     .contact-logo { width:50px; height:50px; object-fit:contain; transition: transform .2s }
     .contact-logo:hover { transform: scale(1.05) }
+
+    /* Coursework accordion */
+    #coursework details {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: var(--panel);
+      padding: 12px 14px;
+      margin: 8px 0;
+    }
+    #coursework summary {
+      cursor: pointer;
+      list-style: none;
+    }
+    #coursework summary::-webkit-details-marker { display: none; }
+    #coursework summary::after {
+      content: "▾";
+      float: right;
+      transition: transform .2s;
+      opacity: .6;
+    }
+    #coursework details[open] summary::after {
+      transform: rotate(180deg);
+    }
   </style>
 </head>
 <body>
@@ -84,8 +107,6 @@
   </script>
 
   <div class="container">
-    <!-- HEADER REMOVED -->
-
     <section class="hero card">
       <div>
         <h1>Hi, I'm <span style="background:linear-gradient(135deg,var(--brand),var(--brand-2)); -webkit-background-clip:text; background-clip:text; color:transparent">Tim Vyverberg</span>.</h1>
@@ -98,10 +119,7 @@
 
     <section id="skills" class="card">
       <h2>Technologies &amp; Tools</h2>
-      <div class="stack" style="margin-bottom:12px"></div>
-      <!-- Icon grid styled like README devicon row -->
       <div class="icon-row" style="display:flex;flex-wrap:wrap;gap:14px;align-items:center">
-        <!-- Programming Languages -->
         <a href="https://www.python.org/" target="_blank" rel="noopener" title="Python">
           <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" width="40" height="40" />
         </a>
@@ -117,7 +135,6 @@
         <a href="https://www.iso.org/standard/76583.html" target="_blank" rel="noopener" title="SQL">
           <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="SQL" width="40" height="40" />
         </a>
-        <!-- Software & Tools -->
         <a href="https://git-scm.com/" target="_blank" rel="noopener" title="Git">
           <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" width="40" height="40" />
         </a>
@@ -127,18 +144,13 @@
         <a href="https://www.kernel.org/" target="_blank" rel="noopener" title="Linux">
           <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" alt="Linux" width="40" height="40" />
         </a>
-        <!-- DBeaver (with graceful fallback if CDN fails) -->
         <a href="https://dbeaver.io/" target="_blank" rel="noopener" title="DBeaver">
-          <img
-            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dbeaver/dbeaver-original.svg"
-            alt="DBeaver" width="40" height="40"
-            onerror="this.onerror=null;this.outerHTML='<svg class=&quot;icon&quot; width=&quot;40&quot; height=&quot;40&quot; viewBox=&quot;0 0 24 24&quot; aria-hidden=&quot;true&quot;><ellipse cx=&quot;12&quot; cy=&quot;6&quot; rx=&quot;9&quot; ry=&quot;3&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;2&quot;/><path d=&quot;M3 8h18v10a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V8Z&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;2&quot;/></svg>';"
-          />
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dbeaver/dbeaver-original.svg" alt="DBeaver" width="40" height="40"
+          onerror="this.onerror=null;this.outerHTML='<svg class=&quot;icon&quot; width=&quot;40&quot; height=&quot;40&quot; viewBox=&quot;0 0 24 24&quot;><ellipse cx=&quot;12&quot; cy=&quot;6&quot; rx=&quot;9&quot; ry=&quot;3&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;2&quot;/><path d=&quot;M3 8h18v10a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V8Z&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;2&quot;/></svg>';" />
         </a>
         <a href="https://www.microsoft.com/microsoft-365" target="_blank" rel="noopener" title="Microsoft 365 (Excel/Word/PowerPoint)">
           <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/microsoft/microsoft-original.svg" alt="Microsoft 365" width="40" height="40" />
         </a>
-        <!-- PASCO Capstone (use a local SVG when you have one) -->
         <a href="https://www.pasco.com/products/software/capstone" target="_blank" rel="noopener" title="PASCO Capstone">
           <svg width="40" height="40" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 18V6l8-3 8 3v12l-8 3z" fill="none" stroke="currentColor" stroke-width="2"/></svg>
         </a>
@@ -149,6 +161,33 @@
     <section id="about" class="card" style="margin-top:18px">
       <h2>About</h2>
       <p>Hello! I'm an undergraduate at the University of Notre Dame studying Computer Science with a minor in Engineering Corporate Practice. My developer journey has only just begun, and I can't wait to show you where it will take me!</p>
+    </section>
+
+    <section id="coursework" class="card" style="margin-top:18px">
+      <h2>Relevant Coursework</h2>
+      <p class="muted" style="margin-top:-4px;margin-bottom:12px">Click a course to see a short description.</p>
+      <div>
+        <details>
+          <summary><strong>Data Structures &amp; Algorithms</strong></summary>
+          <p class="muted">Analyzed time/space complexity, implemented trees, graphs, hashing, dynamic programming; projects in Java/C.</p>
+        </details>
+        <details>
+          <summary><strong>Database Systems</strong></summary>
+          <p class="muted">Relational modeling, SQL, indexing, transactions; course project using PostgreSQL and DBeaver.</p>
+        </details>
+        <details>
+          <summary><strong>Operating Systems</strong></summary>
+          <p class="muted">Processes/threads, scheduling, synchronization, memory management; labs on Linux with C.</p>
+        </details>
+        <details>
+          <summary><strong>Software Design</strong></summary>
+          <p class="muted">OO design, testing, version control, CI; team project following agile practices and code reviews.</p>
+        </details>
+        <details>
+          <summary><strong>Engineering Corporate Practice</strong></summary>
+          <p class="muted">Bridged engineering decisions with business outcomes; presentations and stakeholder communication.</p>
+        </details>
+      </div>
     </section>
 
     <section id="resume" class="card" style="margin-top:18px">
@@ -181,11 +220,9 @@
 
     <footer>
       <div>© <span id="year"></span> Tim Vyverberg</div>
-      <div></div>
     </footer>
   </div>
 
-  <!-- Floating theme toggle -->
   <button id="themeToggle" class="btn fab-theme" title="Toggle theme" aria-label="Toggle theme">Theme</button>
 
   <script>
