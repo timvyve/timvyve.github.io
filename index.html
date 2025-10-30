@@ -48,7 +48,6 @@
     a { color: inherit; text-decoration: none }
     .container { max-width: 980px; margin: 0 auto; padding: 28px 20px 80px; min-height: 150vh; }
 
-    /* Buttons */
     .btn {
       padding: 10px 14px;
       border-radius: 12px;
@@ -68,7 +67,6 @@
     .btn.light-mode { background: #fff; color: #111; border: 1px solid var(--border); }
     .btn.dark-mode { background: #111; color: #fff; }
 
-    /* Hero */
     .hero { display: grid; grid-template-columns: 1.2fr .8fr; gap: 28px; align-items: center; margin: 20px 0 36px }
     .hero h1 { font-size: 42px; line-height: 1.1; margin: 0 0 12px }
     .hero p { margin: 0 0 18px }
@@ -83,14 +81,11 @@
 
     footer { margin-top: 36px; display: flex; align-items: center; justify-content: center; color: var(--muted) }
 
-    /* Floating theme toggle */
     .fab-theme { position: fixed; right: 16px; bottom: 16px; z-index: 20 }
 
-    /* Contact list */
     .contact-logo { width:50px; height:50px; object-fit:contain; transition: transform .2s }
     .contact-logo:hover { transform: scale(1.05) }
 
-    /* Coursework accordion */
     #coursework details {
       border: 1px solid var(--border);
       border-radius: 12px;
@@ -98,10 +93,7 @@
       padding: 12px 14px;
       margin: 8px 0;
     }
-    #coursework summary {
-      cursor: pointer;
-      list-style: none;
-    }
+    #coursework summary { cursor: pointer; list-style: none; }
     #coursework summary::-webkit-details-marker { display: none; }
     #coursework summary::after {
       content: "▾";
@@ -109,9 +101,7 @@
       transition: transform .2s;
       opacity: .6;
     }
-    #coursework details[open] summary::after {
-      transform: rotate(180deg);
-    }
+    #coursework details[open] summary::after { transform: rotate(180deg); }
   </style>
 </head>
 <body>
@@ -134,42 +124,41 @@
     <section id="skills" class="card">
       <h2>Technologies &amp; Tools</h2>
       <div class="icon-row" style="display:flex;flex-wrap:wrap;gap:14px;align-items:center">
-        <a href="https://www.python.org/" target="_blank" rel="noopener" title="Python">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" width="40" height="40" />
+        <a href="https://www.python.org/" target="_blank" title="Python">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" width="40" height="40" />
         </a>
-        <a href="https://www.oracle.com/java/" target="_blank" rel="noopener" title="Java">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java" width="40" height="40" />
+        <a href="https://www.oracle.com/java/" target="_blank" title="Java">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" width="40" height="40" />
         </a>
-        <a href="https://www.mathworks.com/products/matlab.html" target="_blank" rel="noopener" title="MATLAB">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/matlab/matlab-original.svg" alt="MATLAB" width="40" height="40" />
+        <a href="https://www.mathworks.com/products/matlab.html" target="_blank" title="MATLAB">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/matlab/matlab-original.svg" width="40" height="40" />
         </a>
-        <a href="https://en.cppreference.com/w/c" target="_blank" rel="noopener" title="C Language">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" alt="C" width="40" height="40" />
+        <a href="https://en.cppreference.com/w/c" target="_blank" title="C Language">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" width="40" height="40" />
         </a>
-        <a href="https://www.iso.org/standard/76583.html" target="_blank" rel="noopener" title="SQL">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="SQL" width="40" height="40" />
+        <a href="https://www.iso.org/standard/76583.html" target="_blank" title="SQL">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" width="40" height="40" />
         </a>
-        <a href="https://git-scm.com/" target="_blank" rel="noopener" title="Git">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" width="40" height="40" />
+        <a href="https://git-scm.com/" target="_blank" title="Git">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" width="40" height="40" />
         </a>
-        <a href="https://github.com/" target="_blank" rel="noopener" title="GitHub">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" width="40" height="40" />
+        <a href="https://github.com/" target="_blank" title="GitHub">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" width="40" height="40" />
         </a>
-        <a href="https://www.kernel.org/" target="_blank" rel="noopener" title="Linux">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" alt="Linux" width="40" height="40" />
+        <a href="https://www.kernel.org/" target="_blank" title="Linux">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" width="40" height="40" />
         </a>
-        <a href="https://dbeaver.io/" target="_blank" rel="noopener" title="DBeaver">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dbeaver/dbeaver-original.svg" alt="DBeaver" width="40" height="40"
-          onerror="this.onerror=null;this.outerHTML='<svg class=&quot;icon&quot; width=&quot;40&quot; height=&quot;40&quot; viewBox=&quot;0 0 24 24&quot;><ellipse cx=&quot;12&quot; cy=&quot;6&quot; rx=&quot;9&quot; ry=&quot;3&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;2&quot;/><path d=&quot;M3 8h18v10a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V8Z&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;2&quot;/></svg>';" />
+        <a href="https://dbeaver.io/" target="_blank" title="DBeaver">
+          <svg width="40" height="40" viewBox="0 0 24 24"><ellipse cx="12" cy="6" rx="9" ry="3" fill="none" stroke="currentColor" stroke-width="2"/><path d="M3 8h18v10a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V8Z" fill="none" stroke="currentColor" stroke-width="2"/></svg>
         </a>
-        <a href="https://www.microsoft.com/microsoft-365/excel" target="_blank" rel="noopener" title="Microsoft Excel">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/excel/excel-original.svg" alt="Excel" width="40" height="40" onerror="this.onerror=null;this.src='https://upload.wikimedia.org/wikipedia/commons/7/7f/Microsoft_Office_Excel_%282019–present%29.svg';"/>
+        <a href="https://www.microsoft.com/microsoft-365/excel" target="_blank" title="Microsoft Excel">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/7/7f/Microsoft_Office_Excel_%282019%E2%80%93present%29.svg" width="40" height="40" />
         </a>
-        <a href="https://www.microsoft.com/microsoft-365/powerpoint" target="_blank" rel="noopener" title="Microsoft PowerPoint">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/1/10/Microsoft_Office_PowerPoint_%282019–present%29.svg" alt="PowerPoint" width="40" height="40" />
+        <a href="https://www.microsoft.com/microsoft-365/powerpoint" target="_blank" title="Microsoft PowerPoint">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/1/10/Microsoft_Office_PowerPoint_%282019%E2%80%93present%29.svg" width="40" height="40" />
         </a>
-        <a href="https://www.pasco.com/products/software/capstone" target="_blank" rel="noopener" title="PASCO Capstone">
-          <svg width="40" height="40" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 18V6l8-3 8 3v12l-8 3z" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+        <a href="https://www.pasco.com/products/software/capstone" target="_blank" title="PASCO Capstone">
+          <svg width="40" height="40" viewBox="0 0 24 24"><path d="M4 18V6l8-3 8 3v12l-8 3z" fill="none" stroke="currentColor" stroke-width="2"/></svg>
         </a>
       </div>
     </section>
@@ -181,62 +170,37 @@
 
     <section id="coursework" class="card" style="margin-top:18px">
       <h2>Relevant Coursework</h2>
-      <p class="muted" style="margin-top:-4px;margin-bottom:12px">Click a course to see a short description.</p>
       <div>
-        <details>
-          <summary><strong>Data Structures &amp; Algorithms</strong></summary>
-          <p class="muted">Analyzed time/space complexity, implemented trees, graphs, hashing, dynamic programming; projects in Java/C.</p>
-        </details>
-        <details>
-          <summary><strong>Database Systems</strong></summary>
-          <p class="muted">Relational modeling, SQL, indexing, transactions; course project using PostgreSQL and DBeaver.</p>
-        </details>
-        <details>
-          <summary><strong>Operating Systems</strong></summary>
-          <p class="muted">Processes/threads, scheduling, synchronization, memory management; labs on Linux with C.</p>
-        </details>
-        <details>
-          <summary><strong>Software Design</strong></summary>
-          <p class="muted">OO design, testing, version control, CI; team project following agile practices and code reviews.</p>
-        </details>
-        <details>
-          <summary><strong>Engineering Corporate Practice</strong></summary>
-          <p class="muted">Bridged engineering decisions with business outcomes; presentations and stakeholder communication.</p>
-        </details>
+        <details><summary><strong>Data Structures &amp; Algorithms</strong></summary><p class="muted">Analyzed time/space complexity, implemented trees, graphs, hashing, dynamic programming; projects in Java/C.</p></details>
+        <details><summary><strong>Database Systems</strong></summary><p class="muted">Relational modeling, SQL, indexing, transactions; course project using PostgreSQL and DBeaver.</p></details>
+        <details><summary><strong>Operating Systems</strong></summary><p class="muted">Processes, threads, scheduling, synchronization, memory management; labs on Linux with C.</p></details>
+        <details><summary><strong>Software Design</strong></summary><p class="muted">OO design, testing, version control, CI; team project following agile practices and code reviews.</p></details>
+        <details><summary><strong>Engineering Corporate Practice</strong></summary><p class="muted">Bridged engineering decisions with business outcomes; presentations and stakeholder communication.</p></details>
       </div>
     </section>
 
     <section id="resume" class="card" style="margin-top:18px">
-      <h2>Résumé</h2>
-      <p class="muted">Download a PDF copy or view it below.</p>
+      <h2>Resume</h2>
+      <p class="muted">Check out my resume if you'd like to learn more about me!</p>
       <div class="stack" style="margin-bottom:12px">
-        <a class="btn" href="/Resume-Vyverberg.pdf" target="_blank" rel="noopener">Open Résumé (PDF)</a>
-        <a class="btn" href="/Resume-Vyverberg.pdf" download>Download PDF</a>
+        <a class="btn" href="/resume.pdf" target="_blank" rel="noopener">Open Resume (PDF)</a>
+        <a class="btn" href="/resume.pdf" download>Download PDF</a>
       </div>
-      <object data="/Resume-Vyverberg.pdf#zoom=100" type="application/pdf" width="100%" height="700" aria-label="Résumé PDF">
-        <div class="muted">PDF preview not supported on this device. <a href="/Resume-Vyverberg.pdf" target="_blank" rel="noopener">Open the résumé</a>.</div>
-      </object>
     </section>
 
     <section id="contact" class="card" style="margin-top:18px">
       <h2>Connect With Me</h2>
       <div style="display:flex;justify-content:center;flex-wrap:wrap;gap:20px;align-items:center;margin-top:10px;">
-        <a href="https://www.linkedin.com/in/timvyverberg" target="_blank" rel="noopener" title="LinkedIn">
-          <img class="contact-logo"
-               src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png"
-               alt="LinkedIn" />
+        <a href="https://www.linkedin.com/in/timvyverberg" target="_blank" title="LinkedIn">
+          <img class="contact-logo" src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" alt="LinkedIn" />
         </a>
         <a href="mailto:timothyvyverberg@gmail.com" title="Email">
-          <img class="contact-logo"
-               src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Gmail_icon_%282020%29.svg"
-               alt="Gmail" />
+          <img class="contact-logo" src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Gmail_icon_%282020%29.svg" alt="Gmail" />
         </a>
       </div>
     </section>
 
-    <footer>
-      <div>© <span id="year"></span> Tim Vyverberg</div>
-    </footer>
+    <footer><div>© <span id="year"></span> Tim Vyverberg</div></footer>
   </div>
 
   <button id="themeToggle" class="btn fab-theme" title="Toggle theme" aria-label="Toggle theme">Theme</button>
