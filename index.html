@@ -1,235 +1,236 @@
-=<!doctype html>
+<!doctype html>
 <html lang="en">
 <head>
-M <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Tim Vyverberg – Personal Site</title>
-  <meta name="description" content="Portfolio, projects, and contact." />
-  <meta property="og:title" content="Tim Vyverberg – Personal Site" />
-  <meta property="og:description" content="Portfolio, projects, and contact." />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="/social-card.png" />
-  <link rel="icon" href="/favicon.svg" />
-  <style>
-    :root {
-      --bg: #f9fafb;
-      --panel: #ffffff;
-      --fg: #222;
-      --muted: #666;
-      --brand: #2563eb;
-      --brand-2: #0ea5e9;
-      --card: #ffffff;
-      --border: #e5e7eb;
-      --shadow: 0 10px 30px rgba(0,0,0,.1);
-      --radius: 18px;
-    }
-    :root.dark {
-      --bg: #0b0c10;
-      --panel: #121319;
-      --fg: #e9eef2;
-      --muted: #a9b3bd;
-      --brand: #7c5cff;
-      --brand-2: #00d4ff;
-      --card: #151823;
-      --border: #23283b;
-      --shadow: 0 10px 30px rgba(0,0,0,.35);
-    }
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tim Vyverberg – Personal Site</title>
+  <meta name="description" content="Portfolio, projects, and contact." />
+  <meta property="og:title" content="Tim Vyverberg – Personal Site" />
+  <meta property="og:description" content="Portfolio, projects, and contact." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="/social-card.png" />
+  <link rel="icon" href="/favicon.svg" />
+  <style>
+    :root {
+      --bg: #f9fafb;
+      --panel: #ffffff;
+      --fg: #222;
+      --muted: #666;
+      --brand: #2563eb;
+      --brand-2: #0ea5e9;
+      --card: #ffffff;
+      --border: #e5e7eb;
+      --shadow: 0 10px 30px rgba(0,0,0,.1);
+      --radius: 18px;
+    }
+    :root.dark {
+      --bg: #0b0c10;
+      --panel: #121319;
+      --fg: #e9eef2;
+      --muted: #a9b3bd;
+      --brand: #7c5cff;
+      --brand-2: #00d4ff;
+      --card: #151823;
+      --border: #23283b;
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+    }
 
-    * { box-sizing: border-box }
-    html, body { height: 100% }
-    body {
-      margin: 0;
-      font: 16px/1.55 system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans";
-      color: var(--fg);
-      background: radial-gradient(1200px 600px at 10% -10%, rgba(37,99,235,.1), transparent 60%),
-                  radial-gradient(800px 400px at 110% 10%, rgba(14,165,233,.1), transparent 60%),
-                  var(--bg);
-    }
-    a { color: inherit; text-decoration: none }
-    .container { max-width: 980px; margin: 0 auto; padding: 28px 20px 80px; min-height: 150vh; }
+    * { box-sizing: border-box }
+    html, body { height: 100% }
+    body {
+      margin: 0;
+      font: 16px/1.55 system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans";
+      color: var(--fg);
+      background: radial-gradient(1200px 600px at 10% -10%, rgba(37,99,235,.1), transparent 60%),
+                  radial-gradient(800px 400px at 110% 10%, rgba(14,165,233,.1), transparent 60%),
+                  var(--bg);
+    }
+    a { color: inherit; text-decoration: none }
+    .container { max-width: 980px; margin: 0 auto; padding: 28px 20px 80px; min-height: 150vh; }
 
-    .btn {
-      padding: 10px 14px;
-      border-radius: 12px;
-      border: none;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      background: linear-gradient(135deg, var(--brand), var(--brand-2));
-      color: #fff;
-      box-shadow: var(--shadow);
-      cursor: pointer;
-      min-width: 180px;
-      transition: 0.2s;
-    }
-    .btn:hover { transform: translateY(-1px); }
-    .btn.light-mode { background: #fff; color: #111; border: 1px solid var(--border); }
-    .btn.dark-mode { background: #111; color: #fff; }
+    .btn {
+      padding: 10px 14px;
+      border-radius: 12px;
+      border: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: linear-gradient(135deg, var(--brand), var(--brand-2));
+      color: #fff;
+      box-shadow: var(--shadow);
+      cursor: pointer;
+      min-width: 180px;
+      transition: 0.2s;
+    }
+    .btn:hover { transform: translateY(-1px); }
+    .btn.light-mode { background: #fff; color: #111; border: 1px solid var(--border); }
+    .btn.dark-mode { background: #111; color: #fff; }
 
-    .hero { display: grid; grid-template-columns: 1.2fr .8fr; gap: 28px; align-items: center; margin: 20px 0 36px }
-    .hero h1 { font-size: 42px; line-height: 1.1; margin: 0 0 12px }
-    .hero p { margin: 0 0 18px }
-    .hero-img { width: 100%; border-radius: 20px; box-shadow: var(--shadow); object-fit: cover }
+    .hero { display: grid; grid-template-columns: 1.2fr .8fr; gap: 28px; align-items: center; margin: 20px 0 36px }
+    .hero h1 { font-size: 42px; line-height: 1.1; margin: 0 0 12px }
+    .hero p { margin: 0 0 18px }
+    .hero-img { width: 100%; border-radius: 20px; box-shadow: var(--shadow); object-fit: cover }
 
-    .card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 22px; box-shadow: var(--shadow) }
+    .card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 22px; box-shadow: var(--shadow) }
 
-    .stack { display: flex; flex-wrap: wrap; gap: 12px }
-    .icon { width: 18px; height: 18px; flex: 0 0 auto }
+    .stack { display: flex; flex-wrap: wrap; gap: 12px }
+    .icon { width: 18px; height: 18px; flex: 0 0 auto }
 
-    h2 { margin: 0 0 14px; font-size: 22px }
+    h2 { margin: 0 0 14px; font-size: 22px }
 
-    footer { margin-top: 36px; display: flex; align-items: center; justify-content: center; color: var(--muted) }
+    footer { margin-top: 36px; display: flex; align-items: center; justify-content: center; color: var(--muted) }
 
-    .fab-theme { position: fixed; right: 16px; bottom: 16px; z-index: 20 }
+    .fab-theme { position: fixed; right: 16px; bottom: 16px; z-index: 20 }
 
-    .contact-logo { width:50px; height:50px; object-fit:contain; transition: transform .2s }
-    .contact-logo:hover { transform: scale(1.05) }
+    .contact-logo { width:50px; height:50px; object-fit:contain; transition: transform .2s }
+    .contact-logo:hover { transform: scale(1.05) }
 
-    #coursework details {
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      background: var(--panel);
-      padding: 12px 14px;
-      margin: 8px 0;
-    }
-    #coursework summary { cursor: pointer; list-style: none; }
-    #coursework summary::-webkit-details-marker { display: none; }
-    #coursework summary::after {
-      content: "▾";
-      float: right;
-      transition: transform .2s;
-      opacity: .6;
-    }
-    #coursework details[open] summary::after { transform: rotate(180deg); }
-  </style>
+    #coursework details {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: var(--panel);
+      padding: 12px 14px;
+      margin: 8px 0;
+    }
+    #coursework summary { cursor: pointer; list-style: none; }
+    #coursework summary::-webkit-details-marker { display: none; }
+    #coursework summary::after {
+      content: "▾";
+      float: right;
+      transition: transform .2s;
+      opacity: .6;
+    }
+    #coursework details[open] summary::after { transform: rotate(180deg); }
+  </style>
 </head>
 <body>
-  <script>
-    const saved = localStorage.getItem('theme');
-    if (saved === 'dark') document.documentElement.classList.add('dark');
-  </script>
+  <script>
+    const saved = localStorage.getItem('theme');
+    if (saved === 'dark') document.documentElement.classList.add('dark');
+  </script>
 
-  <div class="container">
-    <section class="hero card">
-      <div>
-        <h1>Hi, I'm <span style="background:linear-gradient(135deg,var(--brand),var(--brand-2)); -webkit-background-clip:text; background-clip:text; color:transparent">Tim Vyverberg</span>.</h1>
-        <p class="muted">I am an undergraduate at the University of Notre Dame studying Computer Science with a minor in Engineering Corporate Practice. Welcome!</p>
-      </div>
-      <div>
-        <img class="hero-img" src="/profile.jpeg" alt="Tim Vyverberg portrait" />
-      </div>
-    </section>
+  <div class="container">
+    <section class="hero card">
+      <div>
+        <h1>Hi, I'm <span style="background:linear-gradient(135deg,var(--brand),var(--brand-2)); -webkit-background-clip:text; background-clip:text; color:transparent">Tim Vyverberg</span>.</h1>
+        <p class="muted">I am an undergraduate at the University of Notre Dame studying Computer Science with a minor in Engineering Corporate Practice. Welcome!</p>
+      </div>
+      <div>
+        <img class="hero-img" src="/profile.jpeg" alt="Tim Vyverberg portrait" />
+      </div>
+    </section>
 
-    <section id="skills" class="card">
-      <h2>Technologies &amp; Tools</h2>
-      <div class="icon-row" style="display:flex;flex-wrap:wrap;gap:14px;align-items:center">
-        <a href="https://www.python.org/" target="_blank" title="Python">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" width="40" height="40" />
-        </a>
-        <a href="https://www.oracle.com/java/" target="_blank" title="Java">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" width="40" height="40" />
-        </a>
-        <a href="https://www.mathworks.com/products/matlab.html" target="_blank" title="MATLAB">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/matlab/matlab-original.svg" width="40" height="40" />
-        </a>
-        <a href="https://en.cppreference.com/w/c" target="_blank" title="C Language">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" width="40" height="40" />
-*       </a>
-        <a href="https://www.iso.org/standard/76583.html" target="_blank" title="SQL">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" width="40" height="40" />
-        </a>
-        <a href="https://git-scm.com/" target="_blank" title="Git">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" width="40" height="40" />
-        </a>
-        <a href="https://github.com/" target="_blank" title="GitHub">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" width="40" height="40" />
-        </a>
-        <a href="https://www.kernel.org/" target="_blank" title="Linux">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" width="40" height="40" />
-        </a>
-        <a href="https://dbeaver.io/" target="_blank" title="DBeaver">
-          <svg width="40" height="40" viewBox="0 0 24 24"><ellipse cx="12" cy="6" rx="9" ry="3" fill="none" stroke="currentColor" stroke-width="2"/><path d="M3 8h18v10a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V8Z" fill="none" stroke="currentColor" stroke-width="2"/></svg>
-        </a>
-        <a href="https://www.microsoft.com/microsoft-365/excel" target="_blank" title="Microsoft Excel">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/7/7f/Microsoft_Office_Excel_%282019%E2%80%93present%29.svg" width="40" height="40" />
-        </a>
-        <a href="https://www.microsoft.com/microsoft-365/powerpoint" target="_blank" title="Microsoft PowerPoint">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/1/10/Microsoft_Office_PowerPoint_%282019%E2%80%93present%29.svg" width="40" height="40" />
-        </a>
-        <a href="https://www.pasco.com/products/software/capstone" target="_blank" title="PASCO Capstone">
-          <svg width="40" height="40" viewBox="0 0 24 24"><path d="M4 18V6l8-3 8 3v12l-8 3z" fill="none" stroke="currentColor" stroke-width="2"/></svg>
-        </a>
-      </div>
-    </section>
+    <section id="skills" class="card">
+      <h2>Technologies &amp; Tools</h2>
+      <div class="icon-row" style="display:flex;flex-wrap:wrap;gap:14px;align-items:center">
+        <a href="https://www.python.org/" target="_blank" title="Python">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" width="40" height="40" />
+        </a>
+        <a href="https://www.oracle.com/java/" target="_blank" title="Java">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" width="40" height="40" />
+        </a>
+        <a href="https://www.mathworks.com/products/matlab.html" target="_blank" title="MATLAB">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/matlab/matlab-original.svg" width="40" height="40" />
+        </a>
+        <a href="https://en.cppreference.com/w/c" target="_blank" title="C Language">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" width="40" height="40" />
+        </a>
+        <a href="https://www.iso.org/standard/76583.html" target="_blank" title="SQL">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" width="40" height="40" />
+        </a>
+        <a href="https://git-scm.com/" target="_blank" title="Git">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" width="40" height="40" />
+        </a>
+        <a href="https://github.com/" target="_blank" title="GitHub">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" width="40" height="40" />
+        </a>
+        <a href="https://www.kernel.org/" target="_blank" title="Linux">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" width="40" height="40" />
+        </a>
+        <a href="https://dbeaver.io/" target="_blank" title="DBeaver">
+          <svg width="40" height="40" viewBox="0 0 24 24"><ellipse cx="12" cy="6" rx="9" ry="3" fill="none" stroke="currentColor" stroke-width="2"/><path d="M3 8h18v10a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V8Z" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+        </a>
+        <a href="https://www.microsoft.com/microsoft-365/excel" target="_blank" title="Microsoft Excel">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/7/7f/Microsoft_Office_Excel_%282019%E2%80%93present%29.svg" width="40" height="40" />
+        </a>
+        <a href="https://www.microsoft.com/microsoft-365/powerpoint" target="_blank" title="Microsoft PowerPoint">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/1/10/Microsoft_Office_PowerPoint_%282019%E2%80%93present%29.svg" width="40" height="40" />
+        </a>
+        <a href="https://www.pasco.com/products/software/capstone" target="_blank" title="PASCO Capstone">
+          <svg width="40" height="40" viewBox="0 0 24 24"><path d="M4 18V6l8-3 8 3v12l-8 3z" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+        </a>
+      </div>
+    </section>
 
-    <section id="about" class="card" style="margin-top:18px">
-      <h2>About</h2>
-      <p>Hello! I'm an undergraduate at the University of Notre Dame studying Computer Science with a minor in Engineering Corporate Practice. My developer journey has only just begun, and I can't wait to show you where it will take me!</p>
-    </section>
+    <section id="about" class="card" style="margin-top:18px">
+      <h2>About</h2>
+      <p>Hello! I'm an undergraduate at the University of Notre Dame studying Computer Science with a minor in Engineering Corporate Practice. My developer journey has only just begun, and I can't wait to show you where it will take me!</p>
+    </section>
 
-    <section id="coursework" class="card" style="margin-top:18px">
-      <h2>Relevant Coursework</h2>
-      <div>
-        <details><summary><strong>Systems Programming</strong></summary><p class="muted">Explored the Unix programming environment, implementing solutions for memory management, system calls, networking, and concurrency.</p></details>
-        <details><summary><strong>Data Structures</strong></summary><p class="muted">Implemented elementary and advanced data structures (lists, stacks, trees, graphs, priority queues) using OOP principles. Applied and analyzed algorithms for sorting, searching, and divide-and-conquer.</p></details>
-    t   <details><summary><strong>Linear Algebra &amp; Differential Equations</strong></summary><p class="muted">Applied linear algebra techniques including matrix operations, LU/QR factorizations, and eigenvalue analysis. Solved first and second-order differential equations.</p></details>
-        <details><summary><strong>Integrated Engineering &amp; Business Topics</strong></summary><p class="muted">Analyzed core business functions (financials, project management, supply chain) and led a team in a web-based business simulation. Practiced management, stakeholder communication, and integrating engineering with business goals.</p></details>
-      </div>
-    </section>
+    <section id="coursework" class="card" style="margin-top:18px">
+      <h2>Relevant Coursework</h2>
+      <div>
+        <details><summary><strong>Data Structures &amp; Algorithms</strong></summary><p class="muted">Analyzed time/space complexity, implemented trees, graphs, hashing, dynamic programming; projects in Java/C.</p></details>
+        <details><summary><strong>Database Systems</strong></summary><p class="muted">Relational modeling, SQL, indexing, transactions; course project using PostgreSQL and DBeaver.</p></details>
+        <details><summary><strong>Operating Systems</strong></summary><p class="muted">Processes, threads, scheduling, synchronization, memory management; labs on Linux with C.</p></details>
+        <details><summary><strong>Software Design</strong></summary><p class="muted">OO design, testing, version control, CI; team project following agile practices and code reviews.</p></details>
+        <details><summary><strong>Engineering Corporate Practice</strong></summary><p class="muted">Bridged engineering decisions with business outcomes; presentations and stakeholder communication.</p></details>
+      </div>
+    </section>
 
-    <section id="resume" class="card" style="margin-top:18px">
-      <h2>Resume</h2>
-      <p class="muted">Check out my resume if you'd like to learn more about me!</p>
-      <div class="stack" style="margin-bottom:12px">
-s       <a class="btn" href="/resume.pdf" target="_blank" rel="noopener">Open Resume (PDF)</a>
-        <a class="btn" href="/resume.pdf" download>Download PDF</a>
-      </div>
-    </section>
+    <section id="resume" class="card" style="margin-top:18px">
+      <h2>Resume</h2>
+      <p class="muted">Check out my resume if you'd like to learn more about me!</p>
+      <div class="stack" style="margin-bottom:12px">
+        <a class="btn" href="/resume.pdf" target="_blank" rel="noopener">Open Resume (PDF)</a>
+        <a class="btn" href="/resume.pdf" download>Download PDF</a>
+      </div>
+    </section>
 
-    <section id="contact" class="card" style="margin-top:18px">
-      <h2>Connect With Me</h2>
-      <div style="display:flex;justify-content:center;flex-wrap:wrap;gap:20px;align-items:center;margin-top:10px;">
-        <a href="https://www.linkedin.com/in/timvyverberg" target="_blank" title="LinkedIn">
-          <img class="contact-logo" src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" alt="LinkedIn" />
-_       </a>
-        <a href="mailto:timothyvyverberg@gmail.com" title="Email">
-          <img class="contact-logo" src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Gmail_icon_%282020%29.svg" alt="Gmail" />
-        </a>
-      </div>
-    </section>
+    <section id="contact" class="card" style="margin-top:18px">
+      <h2>Connect With Me</h2>
+      <div style="display:flex;justify-content:center;flex-wrap:wrap;gap:20px;align-items:center;margin-top:10px;">
+        <a href="https://www.linkedin.com/in/timvyverberg" target="_blank" title="LinkedIn">
+          <img class="contact-logo" src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" alt="LinkedIn" />
+        </a>
+        <a href="mailto:timothyvyverberg@gmail.com" title="Email">
+          <img class="contact-logo" src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Gmail_icon_%282020%29.svg" alt="Gmail" />
+        </a>
+      </div>
+    </section>
 
-    <footer><div>© <span id="year"></span> Tim Vyverberg</div></footer>
-  </div>
+    <footer><div>© <span id="year"></span> Tim Vyverberg</div></footer>
+  </div>
 
-  <button id="themeToggle" class="btn fab-theme" title="Toggle theme" aria-label="Toggle theme">Theme</button>
+  <button id="themeToggle" class="btn fab-theme" title="Toggle theme" aria-label="Toggle theme">Theme</button>
 
-  <script>
-    const themeButton = document.getElementById('themeToggle');
-    const root = document.documentElement;
+  <script>
+    const themeButton = document.getElementById('themeToggle');
+    const root = document.documentElement;
 
-    function setTheme(mode) {
-      if (mode === 'dark') {
-        root.classList.add('dark');
-        themeButton.className = 'btn fab-theme light-mode';
-        themeButton.textContent = 'Light Mode';
-      } else {
-        root.classList.remove('dark');
-  _       themeButton.className = 'btn fab-theme dark-mode';
-        themeButton.textContent = 'Dark Mode';
-      }
-      localStorage.setItem('theme', mode);
-    }
+    function setTheme(mode) {
+      if (mode === 'dark') {
+        root.classList.add('dark');
+        themeButton.className = 'btn fab-theme light-mode';
+        themeButton.textContent = 'Light Mode';
+      } else {
+        root.classList.remove('dark');
+        themeButton.className = 'btn fab-theme dark-mode';
+        themeButton.textContent = 'Dark Mode';
+      }
+      localStorage.setItem('theme', mode);
+    }
 
-    const current = localStorage.getItem('theme') || 'light';
-s   setTheme(current);
+    const current = localStorage.getItem('theme') || 'light';
+    setTheme(current);
 
-    themeButton.addEventListener('click', () => {
-      const newMode = root.classList.contains('dark') ? 'light' : 'dark';
-      setTheme(newMode);
-    });
+    themeButton.addEventListener('click', () => {
+      const newMode = root.classList.contains('dark') ? 'light' : 'dark';
+      setTheme(newMode);
+    });
 
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
