@@ -36,17 +36,29 @@
     }
 
     * { box-sizing: border-box }
-    html, body { height: 100% }
+    html, body { min-height: 100% }
     body {
       margin: 0;
       font: 16px/1.55 system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans";
       color: var(--fg);
-      background: radial-gradient(1200px 600px at 10% -10%, rgba(37,99,235,.1), transparent 60%),
-                  radial-gradient(800px 400px at 110% 10%, rgba(14,165,233,.1), transparent 60%),
-                  var(--bg);
+      background: var(--bg);
     }
+
+    /* FIX: gradient that persists while scrolling (mobile-safe vs background-attachment: fixed) */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      background:
+        radial-gradient(1200px 600px at 10% -10%, rgba(37,99,235,.12), transparent 60%),
+        radial-gradient(900px 450px at 110% 10%, rgba(14,165,233,.12), transparent 60%),
+        var(--bg);
+    }
+
     a { color: inherit; text-decoration: none }
-    .container { max-width: 980px; margin: 0 auto; padding: 28px 20px 80px; min-height: 150vh; }
+    .container { max-width: 980px; margin: 0 auto; padding: 28px 20px 80px; min-height: 100vh; }
 
     .btn {
       padding: 10px 14px;
@@ -61,13 +73,17 @@
       box-shadow: var(--shadow);
       cursor: pointer;
       min-width: 180px;
-      transition: 0.2s;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      will-change: transform;
     }
     .btn:hover { transform: translateY(-1px); }
     .btn.light-mode { background: #fff; color: #111; border: 1px solid var(--border); }
     .btn.dark-mode { background: #111; color: #fff; }
 
     .hero { display: grid; grid-template-columns: 1.2fr .8fr; gap: 28px; align-items: center; margin: 20px 0 36px }
+    @media (max-width: 800px) {
+      .hero { grid-template-columns: 1fr; }
+    }
     .hero h1 { font-size: 42px; line-height: 1.1; margin: 0 0 12px }
     .hero p { margin: 0 0 18px }
     .hero-img { width: 100%; border-radius: 20px; box-shadow: var(--shadow); object-fit: cover }
@@ -75,7 +91,7 @@
     .card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 22px; box-shadow: var(--shadow) }
 
     .stack { display: flex; flex-wrap: wrap; gap: 12px }
-    .icon { width: 18px; height: 18px; flex: 0 0 auto }
+    .icon { width: 40px; height: 40px; flex: 0 0 auto; }
 
     h2 { margin: 0 0 14px; font-size: 22px }
 
@@ -102,10 +118,18 @@
       opacity: .6;
     }
     #coursework details[open] summary::after { transform: rotate(180deg); }
+
+    /* FIX: make only the GitHub icon invert in dark mode (leaves other brand colors intact) */
+    .logo-github { transition: filter .2s ease }
+    :root.dark .logo-github { filter: invert(1) brightness(2) contrast(1.1); }
+
+    /* Small helper to hide broken external icons gracefully */
+    .icon-fallback { display:inline-flex; align-items:center; justify-content:center; width:40px; height:40px; border-radius:8px; border:1px solid var(--border); font-size:10px; color:var(--muted); }
   </style>
 </head>
 <body>
   <script>
+    // Initialize theme early to avoid flash
     const saved = localStorage.getItem('theme');
     if (saved === 'dark') document.documentElement.classList.add('dark');
   </script>
@@ -125,41 +149,46 @@
       <h2>Technologies &amp; Tools</h2>
       <div class="icon-row" style="display:flex;flex-wrap:wrap;gap:14px;align-items:center">
         <a href="https://www.python.org/" target="_blank" title="Python">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" width="40" height="40" />
+          <img class="icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" />
         </a>
         <a href="https://www.oracle.com/java/" target="_blank" title="Java">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" width="40" height="40" />
+          <img class="icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java" />
         </a>
         <a href="https://www.mathworks.com/products/matlab.html" target="_blank" title="MATLAB">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/matlab/matlab-original.svg" width="40" height="40" />
+          <img class="icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/matlab/matlab-original.svg" alt="MATLAB" />
         </a>
         <a href="https://en.cppreference.com/w/c" target="_blank" title="C Language">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" width="40" height="40" />
+          <img class="icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" alt="C" />
         </a>
         <a href="https://www.iso.org/standard/76583.html" target="_blank" title="SQL">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" width="40" height="40" />
+          <img class="icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL / SQL" />
         </a>
         <a href="https://git-scm.com/" target="_blank" title="Git">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" width="40" height="40" />
+          <img class="icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" />
         </a>
+        <!-- FIX: GitHub icon adapts in dark mode -->
         <a href="https://github.com/" target="_blank" title="GitHub">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" width="40" height="40" />
+          <img class="icon logo-github" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" />
         </a>
         <a href="https://www.kernel.org/" target="_blank" title="Linux">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" width="40" height="40" />
+          <img class="icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" alt="Linux" />
         </a>
         <a href="https://dbeaver.io/" target="_blank" title="DBeaver">
-          <svg width="40" height="40" viewBox="0 0 24 24"><ellipse cx="12" cy="6" rx="9" ry="3" fill="none" stroke="currentColor" stroke-width="2"/><path d="M3 8h18v10a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V8Z" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+          <svg class="icon" viewBox="0 0 24 24" role="img" aria-label="DBeaver"><ellipse cx="12" cy="6" rx="9" ry="3" fill="none" stroke="currentColor" stroke-width="2"/><path d="M3 8h18v10a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V8Z" fill="none" stroke="currentColor" stroke-width="2"/></svg>
         </a>
-        <!-- Reliable Simple Icons endpoints for Excel/PowerPoint -->
+
+        <!-- FIX: Excel / PowerPoint icons with explicit brand color and graceful fallback -->
         <a href="https://www.microsoft.com/microsoft-365/excel" target="_blank" title="Microsoft Excel">
-          <img src="https://cdn.simpleicons.org/microsoftexcel" width="40" height="40" alt="Excel" />
+          <img class="icon" src="https://cdn.simpleicons.org/microsoftexcel/107C10" alt="Excel"
+               onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'icon-fallback',textContent:'XLS'}));" />
         </a>
         <a href="https://www.microsoft.com/microsoft-365/powerpoint" target="_blank" title="Microsoft PowerPoint">
-          <img src="https://cdn.simpleicons.org/microsoftpowerpoint" width="40" height="40" alt="PowerPoint" />
+          <img class="icon" src="https://cdn.simpleicons.org/microsoftpowerpoint/B7472A" alt="PowerPoint"
+               onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'icon-fallback',textContent:'PPT'}));" />
         </a>
+
         <a href="https://www.pasco.com/products/software/capstone" target="_blank" title="PASCO Capstone">
-          <svg width="40" height="40" viewBox="0 0 24 24"><path d="M4 18V6l8-3 8 3v12l-8 3z" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+          <svg class="icon" viewBox="0 0 24 24" role="img" aria-label="PASCO Capstone"><path d="M4 18V6l8-3 8 3v12l-8 3z" fill="none" stroke="currentColor" stroke-width="2"/></svg>
         </a>
       </div>
     </section>
@@ -225,7 +254,7 @@
     <section id="contact" class="card" style="margin-top:18px">
       <h2>Connect With Me</h2>
       <div style="display:flex;justify-content:center;flex-wrap:wrap;gap:20px;align-items:center;margin-top:10px;">
-        <a href="https://www.linkedin.com/in/timvyverberg" target="_blank" title="LinkedIn">
+        <a href="https://www.linkedin.com/in/timvyverberg" target="_blank" title="LinkedIn" rel="me noopener">
           <img class="contact-logo" src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" alt="LinkedIn" />
         </a>
         <a href="mailto:timothyvyverberg@gmail.com" title="Email">
@@ -256,6 +285,7 @@
       localStorage.setItem('theme', mode);
     }
 
+    // Respect saved preference or default to light
     const current = localStorage.getItem('theme') || 'light';
     setTheme(current);
 
@@ -265,6 +295,10 @@
     });
 
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Optional: warn if running on a project page where absolute / paths may break assets
+    // If this page is served from https://<user>.github.io/<repo>/ (not the root user site),
+    // consider changing src="/profile.jpeg" to src="./profile.jpeg" and similar.
   </script>
 </body>
 </html>
