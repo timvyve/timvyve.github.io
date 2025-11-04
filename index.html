@@ -177,14 +177,14 @@
           <svg class="icon" viewBox="0 0 24 24" role="img" aria-label="DBeaver"><ellipse cx="12" cy="6" rx="9" ry="3" fill="none" stroke="currentColor" stroke-width="2"/><path d="M3 8h18v10a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V8Z" fill="none" stroke="currentColor" stroke-width="2"/></svg>
         </a>
 
-        <!-- FIX: Excel / PowerPoint icons with explicit brand color and graceful fallback -->
+        <!-- REPLACED: Inline, self-hosted Excel-style icon (no external CDN) -->
         <a href="https://www.microsoft.com/microsoft-365/excel" target="_blank" title="Microsoft Excel">
-          <img class="icon" src="https://cdn.simpleicons.org/microsoftexcel/107C10" alt="Excel"
-               onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'icon-fallback',textContent:'XLS'}));" />
-        </a>
-        <a href="https://www.microsoft.com/microsoft-365/powerpoint" target="_blank" title="Microsoft PowerPoint">
-          <img class="icon" src="https://cdn.simpleicons.org/microsoftpowerpoint/B7472A" alt="PowerPoint"
-               onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'icon-fallback',textContent:'PPT'}));" />
+          <svg class="icon" viewBox="0 0 48 48" role="img" aria-label="Excel">
+            <rect x="6" y="6" width="36" height="36" rx="8" ry="8" fill="#107C10"></rect>
+            <rect x="16" y="12" width="22" height="24" fill="#0B5C0B" opacity=".25"></rect>
+            <path d="M12 16h10M12 22h10M12 28h10M12 34h10" stroke="#fff" stroke-width="2" stroke-linecap="round"></path>
+            <path d="M27 31l-4-7 4-7m6 14l-4-7 4-7" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+          </svg>
         </a>
 
         <a href="https://www.pasco.com/products/software/capstone" target="_blank" title="PASCO Capstone">
@@ -204,39 +204,28 @@
         <details>
           <summary><strong>Systems Programming</strong></summary>
           <p class="muted">
-            Worked in the Unix environment to understand numeric representation and memory organization, and to program against
-            the OS via POSIX-style system calls (process creation, file I/O). Built lower-level software that exercises manual memory
-            management, interprocess communication, and basic networking; introduced concurrency concepts using threads and
-            synchronization primitives. Established foundations for subsequent systems courses (e.g., architecture, operating systems).
+            Built software in a Unix/C environment. Hands-on with memory management, files/processes, threads, and basic networking—plus practical debugging and tooling.
           </p>
         </details>
 
         <details>
           <summary><strong>Data Structures</strong></summary>
           <p class="muted">
-            Deepened imperative and object-oriented programming through modularity, specification, data abstraction, classes/objects,
-            genericity, and inheritance. Designed and implemented core structures (lists, stacks, queues, trees) and applied
-            algorithmic techniques (divide-and-conquer, sorting, searching, graph algorithms). Covered advanced structures including
-            priority queues and search trees, emphasizing correct APIs and reusable, well-specified components.
+            Implemented core data structures and algorithms, analyzed complexity, and designed clean, reusable APIs in an object-oriented style.
           </p>
         </details>
 
         <details>
           <summary><strong>Linear Algebra and Differential Equations</strong></summary>
           <p class="muted">
-            Studied matrix computations (elementary operations, LU and QR factorizations), linear transformations, change of basis,
-            and spectral concepts (eigenvalues/eigenvectors). Analyzed and solved first-order and second-order linear differential
-            equations and initial-value problems, connecting linear algebraic tools to modeling and solution methods for engineering systems.
+            Applied matrices, vectors, eigen concepts, and ODEs to model and solve engineering problems; practiced computational thinking (e.g., MATLAB).
           </p>
         </details>
 
         <details>
           <summary><strong>Integrated Engineering and Business Topics I &amp; II</strong></summary>
           <p class="muted">
-            Examined how corporations operate through financial reporting, business planning, product development processes,
-            project management, supply-chain fundamentals, and quality frameworks. Applied these concepts in a team-based,
-            web-driven business simulation with emphasis on management practice, effective technical communication, and awareness
-            of contemporary trends in modern corporations.
+            Gained fundamentals in project management, product development, and financial literacy while building teamwork and technical communication skills.
           </p>
         </details>
       </div>
@@ -246,8 +235,8 @@
       <h2>Resume</h2>
       <p class="muted">Check out my resume if you'd like to learn more about me!</p>
       <div class="stack" style="margin-bottom:12px">
-        <a class="btn" href="/resume.pdf" target="_blank" rel="noopener">Open Resume (PDF)</a>
-        <a class="btn" href="/resume.pdf" download>Download PDF</a>
+        <a class="btn" href="/Resume-Vyverberg.pdf" target="_blank" rel="noopener">Open Resume (PDF)</a>
+        <a class="btn" href="/Resume-Vyverberg.pdf" download>Download PDF</a>
       </div>
     </section>
 
