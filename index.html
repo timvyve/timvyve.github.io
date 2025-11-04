@@ -44,7 +44,6 @@
       background: var(--bg);
     }
 
-    /* FIX: gradient that persists while scrolling (mobile-safe vs background-attachment: fixed) */
     body::before {
       content: "";
       position: fixed;
@@ -102,7 +101,6 @@
     .contact-logo { width:50px; height:50px; object-fit:contain; transition: transform .2s }
     .contact-logo:hover { transform: scale(1.05) }
 
-    /* Apply accordion styles to both sections */
     #coursework details, #learning details {
       border: 1px solid var(--border);
       border-radius: 12px;
@@ -120,17 +118,14 @@
     }
     #coursework details[open] summary::after, #learning details[open] summary::after { transform: rotate(180deg); }
 
-    /* FIX: make only the GitHub icon invert in dark mode (leaves other brand colors intact) */
     .logo-github { transition: filter .2s ease }
     :root.dark .logo-github { filter: invert(1) brightness(2) contrast(1.1); }
 
-    /* Small helper to hide broken external icons gracefully */
     .icon-fallback { display:inline-flex; align-items:center; justify-content:center; width:40px; height:40px; border-radius:8px; border:1px solid var(--border); font-size:10px; color:var(--muted); }
   </style>
 </head>
 <body>
   <script>
-    // Initialize theme early to avoid flash
     const saved = localStorage.getItem('theme');
     if (saved === 'dark') document.documentElement.classList.add('dark');
   </script>
@@ -167,7 +162,6 @@
         <a href="https://git-scm.com/" target="_blank" title="Git">
           <img class="icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" />
         </a>
-        <!-- FIX: GitHub icon adapts in dark mode -->
         <a href="https://github.com/" target="_blank" title="GitHub">
           <img class="icon logo-github" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" />
         </a>
@@ -177,8 +171,6 @@
         <a href="https://dbeaver.io/" target="_blank" title="DBeaver">
           <svg class="icon" viewBox="0 0 24 24" role="img" aria-label="DBeaver"><ellipse cx="12" cy="6" rx="9" ry="3" fill="none" stroke="currentColor" stroke-width="2"/><path d="M3 8h18v10a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V8Z" fill="none" stroke="currentColor" stroke-width="2"/></svg>
         </a>
-
-        <!-- Inline, self-hosted Excel-style icon -->
         <a href="https://www.microsoft.com/microsoft-365/excel" target="_blank" title="Microsoft Excel">
           <svg class="icon" viewBox="0 0 48 48" role="img" aria-label="Excel">
             <rect x="6" y="6" width="36" height="36" rx="8" ry="8" fill="#107C10"></rect>
@@ -187,7 +179,6 @@
             <path d="M27 31l-4-7 4-7m6 14l-4-7 4-7" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
           </svg>
         </a>
-
         <a href="https://www.pasco.com/products/software/capstone" target="_blank" title="PASCO Capstone">
           <svg class="icon" viewBox="0 0 24 24" role="img" aria-label="PASCO Capstone"><path d="M4 18V6l8-3 8 3v12l-8 3z" fill="none" stroke="currentColor" stroke-width="2"/></svg>
         </a>
@@ -199,64 +190,41 @@
       <div>
         <details>
           <summary><strong>Systems Programming</strong></summary>
-          <p class="muted">
-            Built software in a Unix environment using C and Python. Hands-on work with memory management, system calls, files/processes, and basic networking, along with practical debugging and tooling.
-          </p>
+          <p class="muted">Built software in a Unix environment using C and Python. Hands-on work with memory management, system calls, files/processes, and basic networking, along with practical debugging and tooling.</p>
         </details>
-
         <details>
           <summary><strong>Data Structures</strong></summary>
-          <p class="muted">
-            Implemented core data structures and algorithms, analyzed complexity, and designed clean, reusable code in an object-oriented style.
-          </p>
+          <p class="muted">Implemented core data structures and algorithms, analyzed complexity, and designed clean, reusable code in an object-oriented style.</p>
         </details>
-
         <details>
           <summary><strong>Linear Algebra and Differential Equations</strong></summary>
-          <p class="muted">
-            Applied matrices, vectors, eigen concepts, and ODEs to model and solve complex problems.
-          </p>
+          <p class="muted">Applied matrices, vectors, eigen concepts, and ODEs to model and solve complex problems.</p>
         </details>
-
         <details>
           <summary><strong>Integrated Engineering and Business Topics I &amp; II</strong></summary>
-          <p class="muted">
-            Gained fundamentals in project management, product development, and financial literacy while building teamwork and technical communication skills.
-          </p>
+          <p class="muted">Gained fundamentals in project management, product development, and financial literacy while building teamwork and technical communication skills.</p>
         </details>
       </div>
     </section>
 
-    <!-- What I'm Learning (current courses with formal descriptions) -->
     <section id="learning" class="card" style="margin-top:18px">
       <h2>What I'm Learning</h2>
       <div>
         <details>
           <summary><strong>Intro to Artificial Intelligence</strong></summary>
-          <p class="muted">
-            Study of foundational AI and machine learning methods, including state-space search, logic-based reasoning, and core supervised and unsupervised techniques. Emphasis on probabilistic thinking, model evaluation, and modern software frameworks with applications to image and text data.
-          </p>
+          <p class="muted">Study of foundational AI and machine learning methods, including state-space search, logic-based reasoning, and core supervised and unsupervised techniques. Emphasis on probabilistic thinking, model evaluation, and modern software frameworks with applications to image and text data.</p>
         </details>
-
         <details>
           <summary><strong>Computer Architecture</strong></summary>
-          <p class="muted">
-            Examination of instruction sets and the microarchitectural features of scalar and superscalar processors, including pipelines, caches, and performance measurement. Includes introductory assembly programming and simulation-based analysis of design trade-offs.
-          </p>
+          <p class="muted">Examination of instruction sets and the microarchitectural features of scalar and superscalar processors, including pipelines, caches, and performance measurement. Includes introductory assembly programming and simulation-based analysis of design trade-offs.</p>
         </details>
-
         <details>
           <summary><strong>Programming Paradigms</strong></summary>
-          <p class="muted">
-            Comparative overview of imperative, functional, and logic programming with attention to scripting practices, tooling, and interoperability across languages. Focus on idiomatic program design and disciplined, multi-language software development through case-driven exercises.
-          </p>
+          <p class="muted">Comparative overview of imperative, functional, and logic programming with attention to scripting practices, tooling, and interoperability across languages. Focus on idiomatic program design and disciplined, multi-language software development through case-driven exercises.</p>
         </details>
-
         <details>
           <summary><strong>Theory of Computing</strong></summary>
-          <p class="muted">
-            Introduction to formal languages and automata, computability, and complexity. Topics include regular and context-free languages, Turing machines, decidability, and complexity classes such as P, NP, and NP-completeness, highlighting the limits of computation.
-          </p>
+          <p class="muted">Introduction to formal languages and automata, computability, and complexity. Topics include regular and context-free languages, Turing machines, decidability, and complexity classes such as P, NP, and NP-completeness, highlighting the limits of computation.</p>
         </details>
       </div>
     </section>
@@ -273,7 +241,7 @@
     <section id="contact" class="card" style="margin-top:18px">
       <h2>Connect With Me</h2>
       <div style="display:flex;justify-content:center;flex-wrap:wrap;gap:20px;align-items:center;margin-top:10px;">
-        <a href="www.linkedin.com/in/tim-vyverberg" target="_blank" title="LinkedIn" rel="me noopener">
+        <a href="https://www.linkedin.com/in/tim-vyverberg" target="_blank" title="LinkedIn" rel="me noopener noreferrer">
           <img class="contact-logo" src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" alt="LinkedIn" />
         </a>
         <a href="mailto:timothyvyverberg@gmail.com" title="Email">
@@ -290,7 +258,6 @@
   <script>
     const themeButton = document.getElementById('themeToggle');
     const root = document.documentElement;
-
     function setTheme(mode) {
       if (mode === 'dark') {
         root.classList.add('dark');
@@ -303,21 +270,13 @@
       }
       localStorage.setItem('theme', mode);
     }
-
-    // Respect saved preference or default to light
     const current = localStorage.getItem('theme') || 'light';
     setTheme(current);
-
     themeButton.addEventListener('click', () => {
       const newMode = root.classList.contains('dark') ? 'light' : 'dark';
       setTheme(newMode);
     });
-
     document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Optional: warn if running on a project page where absolute / paths may break assets
-    // If this page is served from https://<user>.github.io/<repo>/ (not the root user site),
-    // consider changing src="/profile.jpeg" to src="./profile.jpeg" and similar.
   </script>
 </body>
 </html>
