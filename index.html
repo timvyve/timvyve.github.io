@@ -102,22 +102,23 @@
     .contact-logo { width:50px; height:50px; object-fit:contain; transition: transform .2s }
     .contact-logo:hover { transform: scale(1.05) }
 
-    #coursework details {
+    /* Apply accordion styles to both sections */
+    #coursework details, #learning details {
       border: 1px solid var(--border);
       border-radius: 12px;
       background: var(--panel);
       padding: 12px 14px;
       margin: 8px 0;
     }
-    #coursework summary { cursor: pointer; list-style: none; }
-    #coursework summary::-webkit-details-marker { display: none; }
-    #coursework summary::after {
+    #coursework summary, #learning summary { cursor: pointer; list-style: none; }
+    #coursework summary::-webkit-details-marker, #learning summary::-webkit-details-marker { display: none; }
+    #coursework summary::after, #learning summary::after {
       content: "▾";
       float: right;
       transition: transform .2s;
       opacity: .6;
     }
-    #coursework details[open] summary::after { transform: rotate(180deg); }
+    #coursework details[open] summary::after, #learning details[open] summary::after { transform: rotate(180deg); }
 
     /* FIX: make only the GitHub icon invert in dark mode (leaves other brand colors intact) */
     .logo-github { transition: filter .2s ease }
@@ -177,7 +178,7 @@
           <svg class="icon" viewBox="0 0 24 24" role="img" aria-label="DBeaver"><ellipse cx="12" cy="6" rx="9" ry="3" fill="none" stroke="currentColor" stroke-width="2"/><path d="M3 8h18v10a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V8Z" fill="none" stroke="currentColor" stroke-width="2"/></svg>
         </a>
 
-        <!-- REPLACED: Inline, self-hosted Excel-style icon (no external CDN) -->
+        <!-- Inline, self-hosted Excel-style icon -->
         <a href="https://www.microsoft.com/microsoft-365/excel" target="_blank" title="Microsoft Excel">
           <svg class="icon" viewBox="0 0 48 48" role="img" aria-label="Excel">
             <rect x="6" y="6" width="36" height="36" rx="8" ry="8" fill="#107C10"></rect>
@@ -227,6 +228,32 @@
           <p class="muted">
             Gained fundamentals in project management, product development, and financial literacy while building teamwork and technical communication skills.
           </p>
+        </details>
+      </div>
+    </section>
+
+    <!-- NEW: What I'm Learning (current courses with placeholders) -->
+    <section id="learning" class="card" style="margin-top:18px">
+      <h2>What I'm Learning</h2>
+      <div>
+        <details>
+          <summary><strong>Intro to Artificial Intelligence</strong></summary>
+          <p class="muted">[Placeholder – description coming soon]</p>
+        </details>
+
+        <details>
+          <summary><strong>Computer Architecture</strong></summary>
+          <p class="muted">[Placeholder – description coming soon]</p>
+        </details>
+
+        <details>
+          <summary><strong>Programming Paradigms</strong></summary>
+          <p class="muted">[Placeholder – description coming soon]</p>
+        </details>
+
+        <details>
+          <summary><strong>Theory of Computing</strong></summary>
+          <p class="muted">[Placeholder – description coming soon]</p>
         </details>
       </div>
     </section>
