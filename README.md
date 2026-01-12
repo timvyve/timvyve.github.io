@@ -5,4 +5,4 @@
 ## 🌐 Visit My Website  
 [**Tim Vyverberg**](https://timvyve.github.io)  
 
-© 2025 **Tim Vyverberg** — Built with ❤️ using GitHub Pages.
+© 2026 **Tim Vyverberg** — Built with ❤️ using GitHub Pages.
