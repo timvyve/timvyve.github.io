@@ -4,12 +4,15 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Tim Vyverberg – Personal Site</title>
+
   <meta name="description" content="Portfolio, projects, and contact." />
   <meta property="og:title" content="Tim Vyverberg – Personal Site" />
   <meta property="og:description" content="Portfolio, projects, and contact." />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="/social-card.png" />
+
   <link rel="icon" href="/favicon.svg" />
+
   <style>
     :root {
       --bg: #f9fafb;
@@ -23,6 +26,7 @@
       --shadow: 0 10px 30px rgba(0,0,0,.1);
       --radius: 18px;
     }
+
     :root.dark {
       --bg: #0b0c10;
       --panel: #121319;
@@ -35,11 +39,16 @@
       --shadow: 0 10px 30px rgba(0,0,0,.35);
     }
 
-    * { box-sizing: border-box }
-    html, body { min-height: 100% }
+    * { box-sizing: border-box; }
+
+    html, body {
+      min-height: 100%;
+    }
+
     body {
       margin: 0;
-      font: 16px/1.55 system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans";
+      font: 16px/1.55 system-ui, -apple-system, Segoe UI, Roboto,
+            "Helvetica Neue", Arial, "Noto Sans";
       color: var(--fg);
       background: var(--bg);
     }
@@ -56,8 +65,17 @@
         var(--bg);
     }
 
-    a { color: inherit; text-decoration: none }
-    .container { max-width: 980px; margin: 0 auto; padding: 28px 20px 80px; min-height: 100vh; }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 28px 20px 80px;
+      min-height: 100vh;
+    }
 
     .btn {
       padding: 10px 14px;
@@ -67,44 +85,154 @@
       align-items: center;
       justify-content: center;
       gap: 10px;
-      background: linear-gradient(135deg, var(--brand),var(--brand-2));
+      background: linear-gradient(135deg, var(--brand), var(--brand-2));
       color: #fff;
       box-shadow: var(--shadow);
       cursor: pointer;
       min-width: 180px;
       transition: transform 0.2s ease, box-shadow 0.2s ease;
-      will-change: transform;
     }
-    .btn:hover { transform: translateY(-1px); }
-    .btn.light-mode { background: #fff; color: #111; border: 1px solid var(--border); }
-    .btn.dark-mode { background: #111; color: #fff; }
 
-    .hero { display: grid; grid-template-columns: 1.2fr .8fr; gap: 28px; align-items: center; margin: 20px 0 36px }
+    .btn:hover {
+      transform: translateY(-1px);
+    }
+
+    .btn.light-mode {
+      background: #fff;
+      color: #111;
+      border: 1px solid var(--border);
+    }
+
+    .btn.dark-mode {
+      background: #111;
+      color: #fff;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 28px;
+      align-items: center;
+      margin: 20px 0 36px;
+    }
+
     @media (max-width: 800px) {
-      .hero { grid-template-columns: 1fr; }
+      .hero {
+        grid-template-columns: 1fr;
+      }
     }
-    .hero h1 { font-size: 42px; line-height: 1.1; margin: 0 0 12px }
-    .hero p { margin: 0 0 18px }
-    .hero-img { width: 100%; border-radius: 20px; box-shadow: var(--shadow); object-fit: cover }
 
-    .card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 22px; box-shadow: var(--shadow) }
+    .hero h1 {
+      font-size: 42px;
+      line-height: 1.1;
+      margin: 0 0 12px;
+    }
 
-    .stack { display: flex; flex-wrap: wrap; gap: 12px }
-    .icon { width: 40px; height: 40px; flex: 0 0 auto; }
+    .hero p {
+      margin: 0 0 18px;
+    }
 
-    h2 { margin: 0 0 14px; font-size: 22px }
+    .hero-img {
+      width: 100%;
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+      object-fit: cover;
+    }
 
-    footer { margin-top: 36px; display: flex; align-items: center; justify-content: center; color: var(--muted) }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 22px;
+      box-shadow: var(--shadow);
+    }
 
-    .fab-theme { position: fixed; right: 16px; bottom: 16px; z-index: 20 }
+    .stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
 
-    .contact-logo { width:50px; height:50px; object-fit:contain; transition: transform .2s }
-    .contact-logo:hover { transform: scale(1.05) }
+    .icon {
+      width: 40px;
+      height: 40px;
+      flex: 0 0 auto;
+    }
 
-    .logo-github { transition: filter .2s ease }
-    :root.dark .logo-github { filter: invert(1) brightness(2) contrast(1.1); }
+    h2 {
+      margin: 0 0 14px;
+      font-size: 22px;
+    }
+
+    footer {
+      margin-top: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--muted);
+    }
+
+    .fab-theme {
+      position: fixed;
+      right: 16px;
+      bottom: 16px;
+      z-index: 20;
+    }
+
+    .contact-logo {
+      width: 50px;
+      height: 50px;
+      object-fit: contain;
+      transition: transform .2s;
+    }
+
+    .contact-logo:hover {
+      transform: scale(1.05);
+    }
+
+    #coursework details,
+    #learning details {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: var(--panel);
+      padding: 12px 14px;
+      margin: 8px 0;
+    }
+
+    #coursework summary,
+    #learning summary {
+      cursor: pointer;
+      list-style: none;
+    }
+
+    #coursework summary::-webkit-details-marker,
+    #learning summary::-webkit-details-marker {
+      display: none;
+    }
+
+    #coursework summary::after,
+    #learning summary::after {
+      content: "▾";
+      float: right;
+      transition: transform .2s;
+      opacity: .6;
+    }
+
+    #coursework details[open] summary::after,
+    #learning details[open] summary::after {
+      transform: rotate(180deg);
+    }
+
+    .logo-github {
+      transition: filter .2s ease;
+    }
+
+    :root.dark .logo-github {
+      filter: invert(1) brightness(2) contrast(1.1);
+    }
   </style>
 </head>
+
 <body>
   <script>
     const saved = localStorage.getItem('theme');
@@ -112,10 +240,24 @@
   </script>
 
   <div class="container">
+
     <section class="hero card">
       <div>
-        <h1>Hi, I'm <span style="background:linear-gradient(135deg,var(--brand),var(--brand-2)); -webkit-background-clip:text; background-clip:text; color:transparent">Tim Vyverberg</span>!</h1>
-        <p class="muted">I am an undergraduate at the University of Notre Dame studying Computer Science with a minor in Engineering Corporate Practice. Scroll on to learn a little more about me and reach out if you want to talk about programming, data science, or just about anything Chicago sports related!</p>
+        <h1>
+          Hi, I'm
+          <span style="background:linear-gradient(135deg,var(--brand),var(--brand-2));
+                       -webkit-background-clip:text;
+                       background-clip:text;
+                       color:transparent">
+            Tim Vyverberg
+          </span>!
+        </h1>
+        <p class="muted">
+          I am an undergraduate at the University of Notre Dame studying Computer Science
+          with a minor in Engineering Corporate Practice. Scroll on to learn a little more
+          about me and reach out if you want to talk about programming, data science, or
+          just about anything Chicago sports related!
+        </p>
       </div>
       <div>
         <img class="hero-img" src="/profile.jpeg" alt="Tim Vyverberg portrait" />
@@ -124,32 +266,135 @@
 
     <section id="skills" class="card">
       <h2>Technologies &amp; Tools I've Worked With</h2>
-      <div class="icon-row" style="display:flex;flex-wrap:wrap;gap:14px;align-items:center">
+
+      <div style="display:flex;flex-wrap:wrap;gap:14px;align-items:center">
         <a href="https://www.python.org/" target="_blank" title="Python">
           <img class="icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" />
         </a>
-
+        <a href="https://www.oracle.com/java/" target="_blank" title="Java">
+          <img class="icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java" />
+        </a>
+        <a href="https://www.mathworks.com/products/matlab.html" target="_blank" title="MATLAB">
+          <img class="icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/matlab/matlab-original.svg" alt="MATLAB" />
+        </a>
+        <a href="https://en.cppreference.com/w/c" target="_blank" title="C Language">
+          <img class="icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" alt="C" />
+        </a>
+        <a href="https://www.mysql.com/" target="_blank" title="SQL">
+          <img class="icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL / SQL" />
+        </a>
+        <a href="https://git-scm.com/" target="_blank" title="Git">
+          <img class="icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" />
+        </a>
+        <a href="https://github.com/" target="_blank" title="GitHub">
+          <img class="icon logo-github" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" />
+        </a>
+        <a href="https://www.kernel.org/" target="_blank" title="Linux">
+          <img class="icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" alt="Linux" />
+        </a>
+        <a href="https://dbeaver.io/" target="_blank" title="DBeaver">
+          <svg class="icon" viewBox="0 0 24 24" aria-label="DBeaver">
+            <ellipse cx="12" cy="6" rx="9" ry="3" fill="none" stroke="currentColor" stroke-width="2"/>
+            <path d="M3 8h18v10a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V8Z" fill="none" stroke="currentColor" stroke-width="2"/>
+          </svg>
+        </a>
+        <a href="https://www.microsoft.com/microsoft-365/excel" target="_blank" title="Microsoft Excel">
+          <svg class="icon" viewBox="0 0 48 48" aria-label="Excel">
+            <rect x="6" y="6" width="36" height="36" rx="8" ry="8" fill="#107C10"></rect>
+            <rect x="16" y="12" width="22" height="24" fill="#0B5C0B" opacity=".25"></rect>
+            <path d="M12 16h10M12 22h10M12 28h10M12 34h10" stroke="#fff" stroke-width="2" stroke-linecap="round"></path>
+            <path d="M27 31l-4-7 4-7m6 14l-4-7 4-7" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+          </svg>
+        </a>
         <a href="https://www.pasco.com/products/software/capstone" target="_blank" title="PASCO Capstone">
-          <svg class="icon" viewBox="0 0 24 24" role="img" aria-label="PASCO Capstone">
+          <svg class="icon" viewBox="0 0 24 24" aria-label="PASCO Capstone">
             <path d="M4 18V6l8-3 8 3v12l-8 3z" fill="none" stroke="currentColor" stroke-width="2"/>
           </svg>
         </a>
-
-        <!-- PyTorch icon (external, no local file needed) -->
         <a href="https://pytorch.org" target="_blank" title="PyTorch">
-          <img
-            class="icon"
-            src="https://upload.wikimedia.org/wikipedia/commons/9/96/Pytorch_logo.png"
-            alt="PyTorch"
-          />
+          <img class="icon" src="https://upload.wikimedia.org/wikipedia/commons/9/96/Pytorch_logo.png" alt="PyTorch" />
         </a>
       </div>
     </section>
 
-    <footer><div>© <span id="year"></span> Tim Vyverberg - Go Irish!</div></footer>
+    <section id="coursework" class="card" style="margin-top:18px">
+      <h2>What I've Learned</h2>
+      <div>
+        <details>
+          <summary><strong>Systems Programming</strong></summary>
+          <p class="muted">Built software in a Unix environment using C and Python. Hands-on work with memory management, system calls, files/processes, and basic networking, along with practical debugging and tooling.</p>
+        </details>
+        <details>
+          <summary><strong>Linear Algebra and Differential Equations</strong></summary>
+          <p class="muted">Applied matrices, vectors, eigen concepts, and ODEs to model and solve complex problems.</p>
+        </details>
+        <details>
+          <summary><strong>Integrated Engineering and Business Topics I &amp; II</strong></summary>
+          <p class="muted">Gained fundamentals in project management, product development, and financial literacy while building teamwork and technical communication skills.</p>
+        </details>
+        <details>
+          <summary><strong>Intro to Artificial Intelligence</strong></summary>
+          <p class="muted">Study of foundational AI and machine learning methods, including state-space search, logic-based reasoning, and core supervised and unsupervised techniques. Emphasis on probabilistic thinking, model evaluation, and modern software frameworks with applications to image and text data.</p>
+        </details>
+        <details>
+          <summary><strong>Computer Architecture</strong></summary>
+          <p class="muted">Examination of instruction sets and the microarchitectural features of scalar and superscalar processors, including pipelines, caches, and performance measurement. Includes introductory assembly programming and simulation-based analysis of design trade-offs.</p>
+        </details>
+        <details>
+          <summary><strong>Programming Paradigms</strong></summary>
+          <p class="muted">Comparative overview of imperative, functional, and logic programming with attention to scripting practices, tooling, and interoperability across languages. Focus on idiomatic program design and disciplined, multi-language software development through case-driven exercises.</p>
+        </details>
+      </div>
+    </section>
+
+    <section id="learning" class="card" style="margin-top:18px">
+      <h2>What I'm Learning</h2>
+      <div>
+        <details>
+          <summary><strong>Data Science</strong></summary>
+          <p class="muted">Foundations and practice of data science, integrating probability, statistics, and machine learning with an emphasis on real-world problem solving. Focus on classification, clustering, prediction, causality, and experimental design, alongside software engineering practices, ethical considerations, and clear communication of data-driven insights.</p>
+        </details>
+        <details>
+          <summary><strong>Operating Systems</strong></summary>
+          <p class="muted">Fundamentals of operating system design, including process management, synchronization, memory and file systems. Coverage of paging, segmentation, virtual memory, and core security and protection mechanisms, with case studies of Unix and Windows NT.</p>
+        </details>
+        <details>
+          <summary><strong>Web Development</strong></summary>
+          <p class="muted">Principles of modern web technologies for delivering database-backed content through web interfaces. Focus on building and reasoning about interactive, scalable systems that serve diverse clients, informed by real-world platforms such as e-commerce, social media, and streaming services.</p>
+        </details>
+      </div>
+    </section>
+
+    <section id="resume" class="card" style="margin-top:18px">
+      <h2>Resume</h2>
+      <p class="muted">Check out my resume if you'd like to learn more about me!</p>
+      <div class="stack" style="margin-bottom:12px">
+        <a class="btn" href="/Resume.pdf" target="_blank" rel="noopener">Open Resume (PDF)</a>
+        <a class="btn" href="/Resume.pdf" download>Download PDF</a>
+      </div>
+    </section>
+
+    <section id="contact" class="card" style="margin-top:18px">
+      <h2>Connect With Me</h2>
+      <div style="display:flex;justify-content:center;flex-wrap:wrap;gap:20px;align-items:center;margin-top:10px;">
+        <a href="https://www.linkedin.com/in/tim-vyverberg" target="_blank" title="LinkedIn" rel="me noopener noreferrer">
+          <img class="contact-logo" src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" alt="LinkedIn" />
+        </a>
+        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=timothyvyverberg@gmail.com" target="_blank" rel="noopener" title="Email">
+          <img class="contact-logo" src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Gmail_icon_%282020%29.svg" alt="Gmail" />
+        </a>
+      </div>
+    </section>
+
+    <footer>
+      <div>© <span id="year"></span> Tim Vyverberg - Go Irish!</div>
+    </footer>
+
   </div>
 
-  <button id="themeToggle" class="btn fab-theme" title="Toggle theme">Theme</button>
+  <button id="themeToggle" class="btn fab-theme" title="Toggle theme" aria-label="Toggle theme">
+    Theme
+  </button>
 
   <script>
     const themeButton = document.getElementById('themeToggle');
@@ -158,9 +403,11 @@
     function setTheme(mode) {
       if (mode === 'dark') {
         root.classList.add('dark');
+        themeButton.className = 'btn fab-theme light-mode';
         themeButton.textContent = 'Light Mode';
       } else {
         root.classList.remove('dark');
+        themeButton.className = 'btn fab-theme dark-mode';
         themeButton.textContent = 'Dark Mode';
       }
       localStorage.setItem('theme', mode);
