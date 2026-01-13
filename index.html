@@ -106,22 +106,74 @@
   </style>
 </head>
 <body>
+  <script>
+    const saved = localStorage.getItem('theme');
+    if (saved === 'dark') document.documentElement.classList.add('dark');
+  </script>
+
   <div class="container">
+    <section class="hero card">
+      <div>
+        <h1>Hi, I'm <span style="background:linear-gradient(135deg,var(--brand),var(--brand-2)); -webkit-background-clip:text; background-clip:text; color:transparent">Tim Vyverberg</span>!</h1>
+        <p class="muted">I am an undergraduate at the University of Notre Dame studying Computer Science with a minor in Engineering Corporate Practice. Scroll on to learn a little more about me and reach out if you want to talk about programming, data science, or just about anything Chicago sports related!</p>
+      </div>
+      <div>
+        <img class="hero-img" src="/profile.jpeg" alt="Tim Vyverberg portrait" />
+      </div>
+    </section>
+
     <section id="skills" class="card">
       <h2>Technologies &amp; Tools I've Worked With</h2>
       <div class="icon-row" style="display:flex;flex-wrap:wrap;gap:14px;align-items:center">
+        <a href="https://www.python.org/" target="_blank" title="Python">
+          <img class="icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" />
+        </a>
+
         <a href="https://www.pasco.com/products/software/capstone" target="_blank" title="PASCO Capstone">
           <svg class="icon" viewBox="0 0 24 24" role="img" aria-label="PASCO Capstone">
             <path d="M4 18V6l8-3 8 3v12l-8 3z" fill="none" stroke="currentColor" stroke-width="2"/>
           </svg>
         </a>
 
-        <!-- PyTorch logo added -->
+        <!-- PyTorch icon (external, no local file needed) -->
         <a href="https://pytorch.org" target="_blank" title="PyTorch">
-          <img class="icon" src="/pytorch_logo.png" alt="PyTorch" />
+          <img
+            class="icon"
+            src="https://upload.wikimedia.org/wikipedia/commons/9/96/Pytorch_logo.png"
+            alt="PyTorch"
+          />
         </a>
       </div>
     </section>
+
+    <footer><div>© <span id="year"></span> Tim Vyverberg - Go Irish!</div></footer>
   </div>
+
+  <button id="themeToggle" class="btn fab-theme" title="Toggle theme">Theme</button>
+
+  <script>
+    const themeButton = document.getElementById('themeToggle');
+    const root = document.documentElement;
+
+    function setTheme(mode) {
+      if (mode === 'dark') {
+        root.classList.add('dark');
+        themeButton.textContent = 'Light Mode';
+      } else {
+        root.classList.remove('dark');
+        themeButton.textContent = 'Dark Mode';
+      }
+      localStorage.setItem('theme', mode);
+    }
+
+    const current = localStorage.getItem('theme') || 'light';
+    setTheme(current);
+
+    themeButton.addEventListener('click', () => {
+      setTheme(root.classList.contains('dark') ? 'light' : 'dark');
+    });
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
