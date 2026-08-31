@@ -3,193 +3,355 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Tim Vyverberg – Personal Site</title>
+  <title>Tim Vyverberg — Computer Science, Notre Dame</title>
 
-  <meta name="description" content="Portfolio, projects, and contact." />
-  <meta property="og:title" content="Tim Vyverberg – Personal Site" />
-  <meta property="og:description" content="Portfolio, projects, and contact." />
+  <meta name="description" content="Tim Vyverberg — CS student at the University of Notre Dame. Projects, coursework, experience, and resume." />
+  <meta property="og:title" content="Tim Vyverberg — Computer Science, Notre Dame" />
+  <meta property="og:description" content="Projects, coursework, experience, and resume." />
   <meta property="og:type" content="website" />
-  <meta property="og:image" content="/social-card.png" />
 
-  <link rel="icon" href="/favicon.svg" />
-  
-  <!-- Stylesheets -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' fill='%230a0d0c'/%3E%3Ctext x='12' y='17' font-size='16' font-family='monospace' fill='%2354ffb0' text-anchor='middle'%3Etv%3C/text%3E%3C/svg%3E" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+
   <link rel="stylesheet" href="css/styles.css" />
-  <link rel="stylesheet" href="css/animations.css" />
-  <link rel="stylesheet" href="css/modal.css" />
-  
-  <!-- Preload critical resources -->
-  <link rel="preload" href="/profile.jpeg" as="image" />
 </head>
-
 <body>
-  <!-- Particle background -->
-  <canvas id="particles-canvas"></canvas>
 
-  <div class="container">
-    
-    <!-- Hero Section -->
-    <section class="hero card">
-      <div class="hero-content">
-        <h1 class="typewriter-container">
-          <span id="typewriter-text"></span><span class="typewriter-cursor">|</span>
-        </h1>
-        <p class="muted">
-          I am an undergraduate at the University of Notre Dame studying Computer Science
-          with a minor in Engineering Corporate Practice. Scroll on to learn a little more
-          about me and reach out if you want to talk about programming, data science, or
-          just about anything Chicago sports related!
-        </p>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a href="#top" class="logo">tim<span class="accent">.</span>vyverberg</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="site-nav" id="siteNav">
+        <a href="#about" class="navlink">about</a>
+        <a href="#skills" class="navlink">skills</a>
+        <a href="#projects" class="navlink">projects</a>
+        <a href="#experience" class="navlink">experience</a>
+        <a href="#contact" class="navlink">contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- Hero -->
+    <section class="hero wrap" id="about">
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <p class="kicker">undergraduate · computer science · class of 2027</p>
+          <h1 class="display">Tim<br />Vyverberg<span class="accent">.</span></h1>
+          <p class="lede">
+            I'm a computer science student at the University of Notre Dame, minoring in
+            Engineering Corporate Practice. I build AI agents, full-stack apps, and
+            data-driven tools — and I like to reach for whichever language the problem
+            actually calls for. Outside of code: Chicago sports and club golf.
+          </p>
+          <div class="cta-row">
+            <a href="#projects" class="btn btn-primary">view projects →</a>
+            <a href="#contact" class="btn btn-outline">get in touch</a>
+          </div>
+        </div>
+        <div class="hero-photo">
+          <img src="profile.jpeg" alt="Tim Vyverberg" />
+        </div>
       </div>
-      <div class="hero-image">
-        <img class="hero-img" src="/profile.jpeg" alt="Tim Vyverberg portrait" />
-      </div>
-    </section>
 
-    <!-- Skills Section -->
-    <section id="skills" class="card">
-      <h2 class="section-title">Technologies & Tools I've Worked With</h2>
-
-      <div class="tech-stack">
-        <a href="https://www.python.org/" target="_blank" title="Python" rel="noopener noreferrer">
-          <img class="tech-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" />
-        </a>
-        <a href="https://www.oracle.com/java/" target="_blank" title="Java" rel="noopener noreferrer">
-          <img class="tech-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java" />
-        </a>
-        <a href="https://www.mathworks.com/products/matlab.html" target="_blank" title="MATLAB" rel="noopener noreferrer">
-          <img class="tech-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/matlab/matlab-original.svg" alt="MATLAB" />
-        </a>
-        <a href="https://en.cppreference.com/w/c" target="_blank" title="C Language" rel="noopener noreferrer">
-          <img class="tech-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" alt="C" />
-        </a>
-        <a href="https://www.mysql.com/" target="_blank" title="SQL" rel="noopener noreferrer">
-          <img class="tech-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL / SQL" />
-        </a>
-        <a href="https://git-scm.com/" target="_blank" title="Git" rel="noopener noreferrer">
-          <img class="tech-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" />
-        </a>
-        <a href="https://github.com/" target="_blank" title="GitHub" rel="noopener noreferrer">
-          <img class="tech-icon logo-github" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" />
-        </a>
-        <a href="https://www.kernel.org/" target="_blank" title="Linux" rel="noopener noreferrer">
-          <img class="tech-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" alt="Linux" />
-        </a>
-        <a href="https://dbeaver.io/" target="_blank" title="DBeaver" rel="noopener noreferrer">
-          <svg class="tech-icon" viewBox="0 0 24 24" aria-label="DBeaver">
-            <ellipse cx="12" cy="6" rx="9" ry="3" fill="none" stroke="currentColor" stroke-width="2"/>
-            <path d="M3 8h18v10a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V8Z" fill="none" stroke="currentColor" stroke-width="2"/>
-          </svg>
-        </a>
-        <a href="https://www.microsoft.com/microsoft-365/excel" target="_blank" title="Microsoft Excel" rel="noopener noreferrer">
-          <svg class="tech-icon" viewBox="0 0 48 48" aria-label="Excel">
-            <rect x="6" y="6" width="36" height="36" rx="8" ry="8" fill="#107C10"></rect>
-            <rect x="16" y="12" width="22" height="24" fill="#0B5C0B" opacity=".25"></rect>
-            <path d="M12 16h10M12 22h10M12 28h10M12 34h10" stroke="#fff" stroke-width="2" stroke-linecap="round"></path>
-            <path d="M27 31l-4-7 4-7m6 14l-4-7 4-7" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
-          </svg>
-        </a>
-        <a href="https://www.pasco.com/products/software/capstone" target="_blank" title="PASCO Capstone" rel="noopener noreferrer">
-          <svg class="tech-icon" viewBox="0 0 24 24" aria-label="PASCO Capstone">
-            <path d="M4 18V6l8-3 8 3v12l-8 3z" fill="none" stroke="currentColor" stroke-width="2"/>
-          </svg>
-        </a>
-        <a href="https://pytorch.org" target="_blank" title="PyTorch" rel="noopener noreferrer">
-          <img class="tech-icon" src="https://upload.wikimedia.org/wikipedia/commons/9/96/Pytorch_logo.png" alt="PyTorch" />
-        </a>
+      <div class="stat-row">
+        <div class="stat">
+          <span class="stat-num">3.62</span>
+          <span class="stat-label">GPA</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">4</span>
+          <span class="stat-label">Engineering Projects</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">1</span>
+          <span class="stat-label">Industry Internship</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">May '27</span>
+          <span class="stat-label">Expected Grad</span>
+        </div>
       </div>
     </section>
 
-    <!-- Coursework Section -->
-    <section id="coursework" class="card">
-      <h2 class="section-title">What I've Learned</h2>
-      <div class="details-list">
-        <details class="details-item">
-          <summary>Systems Programming</summary>
-          <p class="muted">Built software in a Unix environment using C and Python. Hands-on work with memory management, system calls, files/processes, and basic networking, along with practical debugging and tooling.</p>
-        </details>
-        <details class="details-item">
-          <summary>Linear Algebra and Differential Equations</summary>
-          <p class="muted">Applied matrices, vectors, eigen concepts, and ODEs to model and solve complex problems.</p>
-        </details>
-        <details class="details-item">
-          <summary>Integrated Engineering and Business Topics I & II</summary>
-          <p class="muted">Gained fundamentals in project management, product development, and financial literacy while building teamwork and technical communication skills.</p>
-        </details>
-        <details class="details-item">
-          <summary>Intro to Artificial Intelligence</summary>
-          <p class="muted">Study of foundational AI and machine learning methods, including state-space search, logic-based reasoning, and core supervised and unsupervised techniques. Emphasis on probabilistic thinking, model evaluation, and modern software frameworks with applications to image and text data.</p>
-        </details>
-        <details class="details-item">
-          <summary>Computer Architecture</summary>
-          <p class="muted">Examination of instruction sets and the microarchitectural features of scalar and superscalar processors, including pipelines, caches, and performance measurement. Includes introductory assembly programming and simulation-based analysis of design trade-offs.</p>
-        </details>
-        <details class="details-item">
-          <summary>Programming Paradigms</summary>
-          <p class="muted">Comparative overview of imperative, functional, and logic programming with attention to scripting practices, tooling, and interoperability across languages. Focus on idiomatic program design and disciplined, multi-language software development through case-driven exercises.</p>
-        </details>
+    <!-- Skills -->
+    <section class="section" id="skills">
+      <div class="wrap">
+        <p class="section-kicker">01 / skills &amp; stack</p>
+        <h2 class="section-title">Technologies I've worked with</h2>
+
+        <div class="tech-grid">
+          <a class="tech-tile" href="https://www.python.org/" target="_blank" rel="noopener noreferrer">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="" />
+            <span>Python</span>
+          </a>
+          <a class="tech-tile" href="https://www.oracle.com/java/" target="_blank" rel="noopener noreferrer">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="" />
+            <span>Java</span>
+          </a>
+          <a class="tech-tile" href="https://en.cppreference.com/w/c" target="_blank" rel="noopener noreferrer">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" alt="" />
+            <span>C</span>
+          </a>
+          <a class="tech-tile" href="https://www.mathworks.com/products/matlab.html" target="_blank" rel="noopener noreferrer">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/matlab/matlab-original.svg" alt="" />
+            <span>MATLAB</span>
+          </a>
+          <a class="tech-tile" href="https://www.mysql.com/" target="_blank" rel="noopener noreferrer">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="" />
+            <span>SQL</span>
+          </a>
+          <a class="tech-tile" href="https://pytorch.org" target="_blank" rel="noopener noreferrer">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/9/96/Pytorch_logo.png" alt="" />
+            <span>PyTorch</span>
+          </a>
+          <a class="tech-tile" href="https://git-scm.com/" target="_blank" rel="noopener noreferrer">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="" />
+            <span>Git</span>
+          </a>
+          <a class="tech-tile" href="https://github.com/" target="_blank" rel="noopener noreferrer">
+            <img class="invert" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="" />
+            <span>GitHub</span>
+          </a>
+          <a class="tech-tile" href="https://www.kernel.org/" target="_blank" rel="noopener noreferrer">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" alt="" />
+            <span>Linux</span>
+          </a>
+          <a class="tech-tile" href="https://dbeaver.io/" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <ellipse cx="12" cy="6" rx="9" ry="3" fill="none" stroke="currentColor" stroke-width="2"/>
+              <path d="M3 8h18v10a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V8Z" fill="none" stroke="currentColor" stroke-width="2"/>
+            </svg>
+            <span>DBeaver</span>
+          </a>
+          <a class="tech-tile" href="https://www.microsoft.com/microsoft-365/excel" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 48 48" aria-hidden="true">
+              <rect x="6" y="6" width="36" height="36" rx="8" ry="8" fill="#107C10"></rect>
+              <path d="M12 16h10M12 22h10M12 28h10M12 34h10" stroke="#fff" stroke-width="2" stroke-linecap="round"></path>
+              <path d="M27 31l-4-7 4-7m6 14l-4-7 4-7" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+            <span>Excel</span>
+          </a>
+          <a class="tech-tile" href="https://openjfx.io/" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/>
+              <path d="M8 12h8M12 8v8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+            <span>JavaFX</span>
+          </a>
+        </div>
       </div>
     </section>
 
-    <!-- Learning Section -->
-    <section id="learning" class="card">
-      <h2 class="section-title">What I'm Learning</h2>
-      <div class="details-list">
-        <details class="details-item">
-          <summary>Data Science</summary>
-          <p class="muted">Foundations and practice of data science, integrating probability, statistics, and machine learning with an emphasis on real-world problem solving. Focus on classification, clustering, prediction, causality, and experimental design, alongside software engineering practices, ethical considerations, and clear communication of data-driven insights.</p>
-        </details>
-        <details class="details-item">
-          <summary>Operating Systems</summary>
-          <p class="muted">Fundamentals of operating system design, including process management, synchronization, memory and file systems. Coverage of paging, segmentation, virtual memory, and core security and protection mechanisms, with case studies of Unix and Windows NT.</p>
-        </details>
-        <details class="details-item">
-          <summary>Web Development</summary>
-          <p class="muted">Principles of modern web technologies for delivering database-backed content through web interfaces. Focus on building and reasoning about interactive, scalable systems that serve diverse clients, informed by real-world platforms such as e-commerce, social media, and streaming services.</p>
-        </details>
+    <!-- Coursework -->
+    <section class="section alt" id="coursework">
+      <div class="wrap">
+        <p class="section-kicker">02 / coursework</p>
+        <h2 class="section-title">What I've learned &amp; what I'm learning</h2>
+
+        <div class="course-columns">
+          <div class="course-col">
+            <h3 class="course-col-title">Completed</h3>
+            <div class="details-list">
+              <details class="details-item">
+                <summary>Systems Programming</summary>
+                <p>Built software in a Unix environment using C and Python. Hands-on work with memory management, system calls, files/processes, and basic networking, along with practical debugging and tooling.</p>
+              </details>
+              <details class="details-item">
+                <summary>Linear Algebra and Differential Equations</summary>
+                <p>Applied matrices, vectors, eigen concepts, and ODEs to model and solve complex problems.</p>
+              </details>
+              <details class="details-item">
+                <summary>Integrated Engineering and Business Topics I &amp; II</summary>
+                <p>Gained fundamentals in project management, product development, and financial literacy while building teamwork and technical communication skills.</p>
+              </details>
+              <details class="details-item">
+                <summary>Intro to Artificial Intelligence</summary>
+                <p>Study of foundational AI and machine learning methods, including state-space search, logic-based reasoning, and core supervised and unsupervised techniques. Emphasis on probabilistic thinking, model evaluation, and modern software frameworks with applications to image and text data.</p>
+              </details>
+              <details class="details-item">
+                <summary>Computer Architecture</summary>
+                <p>Examination of instruction sets and the microarchitectural features of scalar and superscalar processors, including pipelines, caches, and performance measurement. Includes introductory assembly programming and simulation-based analysis of design trade-offs.</p>
+              </details>
+              <details class="details-item">
+                <summary>Programming Paradigms</summary>
+                <p>Comparative overview of imperative, functional, and logic programming with attention to scripting practices, tooling, and interoperability across languages. Focus on idiomatic program design and disciplined, multi-language software development through case-driven exercises.</p>
+              </details>
+            </div>
+          </div>
+
+          <div class="course-col">
+            <h3 class="course-col-title">In progress</h3>
+            <div class="details-list">
+              <details class="details-item">
+                <summary>Data Science</summary>
+                <p>Foundations and practice of data science, integrating probability, statistics, and machine learning with an emphasis on real-world problem solving. Focus on classification, clustering, prediction, causality, and experimental design, alongside software engineering practices, ethical considerations, and clear communication of data-driven insights.</p>
+              </details>
+              <details class="details-item">
+                <summary>Operating Systems</summary>
+                <p>Fundamentals of operating system design, including process management, synchronization, memory and file systems. Coverage of paging, segmentation, virtual memory, and core security and protection mechanisms, with case studies of Unix and Windows NT.</p>
+              </details>
+              <details class="details-item">
+                <summary>Web Development</summary>
+                <p>Principles of modern web technologies for delivering database-backed content through web interfaces. Focus on building and reasoning about interactive, scalable systems that serve diverse clients, informed by real-world platforms such as e-commerce, social media, and streaming services.</p>
+              </details>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
-    <!-- Resume Section -->
-    <section id="resume" class="card">
-      <h2 class="section-title">Resume</h2>
-      <p class="muted">Check out my resume if you'd like to learn more about me!</p>
-      <div class="btn-stack">
-        <button class="btn btn-primary" data-modal-trigger="resume-modal">
-          View Resume
-        </button>
-        <a class="btn btn-secondary" href="/Resume.pdf" download>
-          Download PDF
-        </a>
+    <!-- Projects -->
+    <section class="section" id="projects">
+      <div class="wrap">
+        <p class="section-kicker">03 / projects</p>
+        <h2 class="section-title">Engineering projects</h2>
+
+        <div class="project-grid">
+          <article class="project-card">
+            <div class="project-top">
+              <span class="project-year">2025</span>
+              <div class="project-tags">
+                <span class="tag">PyTorch</span><span class="tag">Neural Nets</span><span class="tag">NLP</span>
+              </div>
+            </div>
+            <h3>Intro to Artificial Intelligence</h3>
+            <p>Implemented feed-forward and convolutional neural networks from scratch and in PyTorch, hitting 80%+ accuracy on EMNIST through custom layers, backprop, and parameter tuning. Also designed character-level NLP models — n-gram similarity, RNNs, and encoder-only Transformers — to classify and decode ciphered text.</p>
+          </article>
+
+          <article class="project-card">
+            <div class="project-top">
+              <span class="project-year">2025</span>
+              <div class="project-tags">
+                <span class="tag">JavaFX</span><span class="tag">SQLite</span><span class="tag">JUnit</span>
+              </div>
+            </div>
+            <h3>Programming Paradigms — Course Review App</h3>
+            <p>Built a full-stack JavaFX CRUD application enabling anonymous course reviews, with secure authentication, dynamic search, SQLite-backed persistence, and comprehensive JUnit testing.</p>
+          </article>
+
+          <article class="project-card">
+            <div class="project-top">
+              <span class="project-year">2025</span>
+              <div class="project-tags">
+                <span class="tag">Node.js</span><span class="tag">Express</span><span class="tag">MongoDB</span>
+              </div>
+            </div>
+            <h3>Web Development — RESTful API</h3>
+            <p>Engineered a RESTful API using Node.js and Express, integrating a MongoDB Atlas database for scalable data persistence while securing endpoints with JWT authentication and Joi-driven validation.</p>
+          </article>
+
+          <article class="project-card">
+            <div class="project-top">
+              <span class="project-year">2025</span>
+              <div class="project-tags">
+                <span class="tag">Strategy</span><span class="tag">Capsim</span><span class="tag">Teamwork</span>
+              </div>
+            </div>
+            <h3>Advanced Engineering &amp; Business Topics</h3>
+            <p>Co-authored a 27-page strategy report on Lockheed Martin with a 6-person team, evaluating industry position, business model, and competitive strategy. Also simulated 12 weeks of project-management decision-making across finance, marketing, R&amp;D, and production in Capsim.</p>
+          </article>
+        </div>
       </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="card">
-      <h2 class="section-title">Connect With Me</h2>
-      <div class="contact-grid">
-        <a href="https://www.linkedin.com/in/tim-vyverberg" target="_blank" class="contact-link" rel="me noopener noreferrer" title="LinkedIn">
-          <img class="contact-icon" src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" alt="LinkedIn" />
-          <span>LinkedIn</span>
-        </a>
-        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=timothyvyverberg@gmail.com" target="_blank" class="contact-link" rel="noopener" title="Email">
-          <img class="contact-icon" src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Gmail_icon_%282020%29.svg" alt="Gmail" />
-          <span>Email</span>
-        </a>
+    <!-- Experience -->
+    <section class="section alt" id="experience">
+      <div class="wrap">
+        <p class="section-kicker">04 / experience</p>
+        <h2 class="section-title">Experience &amp; leadership</h2>
+
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-when">Jun – Jul 2025</div>
+            <div class="timeline-body">
+              <h3>Data Science &amp; Technology Support Intern <span class="timeline-org">— PGA TOUR</span></h3>
+              <p class="timeline-loc">Ponte Vedra, FL</p>
+              <ul>
+                <li>Built AI agents in Python to generate SQL scripts, query databases, and produce insightful responses.</li>
+                <li>Deployed and debugged agents with Docker Compose locally and AWS for production.</li>
+                <li>Selected as 1 of 15 students worldwide from a pool of 1,200+ applicants.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-when">Nov 2023 – Present</div>
+            <div class="timeline-body">
+              <h3>Member <span class="timeline-org">— CS For Good</span></h3>
+              <p class="timeline-loc">University of Notre Dame</p>
+              <ul>
+                <li>Collaborated on a 5-person team building front-end web components for a community-facing site in South Bend.</li>
+                <li>Led a group of 5 to collect and organize media for "Place to Be Me," a children's dispensary program in South Bend.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-when">Aug 2023 – Present</div>
+            <div class="timeline-body">
+              <h3>Member <span class="timeline-org">— Club Golf</span></h3>
+              <p class="timeline-loc">University of Notre Dame</p>
+              <ul>
+                <li>Compete in rounds and practices with the team, improving skills and supporting a team environment.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
-    <!-- Footer -->
-    <footer>
-      <div>© <span id="year"></span> Tim Vyverberg - Go Irish!</div>
-    </footer>
+    <!-- Resume -->
+    <section class="section" id="resume">
+      <div class="wrap resume-wrap">
+        <p class="section-kicker">05 / resume</p>
+        <h2 class="section-title">Resume</h2>
+        <p class="lede small">Check out my resume for the full picture — education, experience, and skills.</p>
+        <div class="cta-row">
+          <button class="btn btn-primary" data-modal-trigger="resume-modal">view resume</button>
+          <a class="btn btn-outline" href="Resume.pdf" download>download pdf</a>
+        </div>
+      </div>
+    </section>
 
-  </div>
+    <!-- Contact -->
+    <section class="section alt" id="contact">
+      <div class="wrap">
+        <p class="section-kicker">06 / contact</p>
+        <div class="contact-card">
+          <div class="contact-status">
+            <span class="status-dot"></span> open to internships &amp; new-grad roles — starting may 2027
+          </div>
+          <h2 class="section-title">Let's talk.</h2>
+          <p class="lede small">
+            Reach out about programming, data science, internships — or just about anything
+            Chicago sports related.
+          </p>
+          <div class="contact-actions">
+            <button class="btn btn-primary" id="copyEmailBtn" data-email="timothyvyverberg@gmail.com">
+              <span id="copyEmailLabel">timothyvyverberg@gmail.com</span>
+            </button>
+            <a class="btn btn-outline" href="https://www.linkedin.com/in/tim-vyverberg" target="_blank" rel="me noopener noreferrer">linkedin ↗</a>
+            <a class="btn btn-outline" href="Resume.pdf" download>resume ↓</a>
+          </div>
+        </div>
+      </div>
+    </section>
 
-  <!-- Theme Toggle Button -->
-  <button id="themeToggle" class="theme-toggle" title="Toggle theme" aria-label="Toggle dark/light mode">
-    🌙
-  </button>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <span>© <span id="year"></span> Tim Vyverberg</span>
+      <span class="footer-note">Go Irish!</span>
+    </div>
+  </footer>
 
   <!-- Resume Modal -->
   <div id="resume-modal" class="modal-overlay" data-modal-id="resume-modal" aria-hidden="true" role="dialog" aria-labelledby="resume-modal-title">
@@ -200,25 +362,21 @@
       </div>
       <div class="modal-body">
         <div class="pdf-container">
-          <object data="/Resume.pdf" type="application/pdf" width="100%" height="100%">
-            <p>Your browser doesn't support PDF viewing. 
-              <a href="/Resume.pdf" target="_blank">Open in new tab</a> or 
-              <a href="/Resume.pdf" download>download the PDF</a>.
+          <object data="Resume.pdf" type="application/pdf" width="100%" height="100%">
+            <p>Your browser doesn't support inline PDFs.
+              <a href="Resume.pdf" target="_blank">Open in new tab</a> or
+              <a href="Resume.pdf" download>download it</a>.
             </p>
           </object>
         </div>
       </div>
       <div class="modal-footer">
-        <button class="btn btn-secondary modal-close-btn">Close</button>
-        <a href="/Resume.pdf" download class="btn btn-primary">Download PDF</a>
+        <button class="btn btn-outline modal-close-btn">Close</button>
+        <a href="Resume.pdf" download class="btn btn-primary">Download PDF</a>
       </div>
     </div>
   </div>
 
-  <!-- JavaScript Files -->
   <script src="js/main.js"></script>
-  <script src="js/particles.js"></script>
-  <script src="js/modal.js"></script>
-  <script src="js/animations.js"></script>
 </body>
 </html>
