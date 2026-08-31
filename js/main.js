@@ -1,163 +1,69 @@
-// Main JavaScript - Core functionality
+// Tim Vyverberg — personal site interactions
 
-// Theme management
-(function() {
-  'use strict';
+document.addEventListener('DOMContentLoaded', () => {
+  // Footer year
+  const yearEl = document.getElementById('year');
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-  // Initialize theme from localStorage or default to light
-  function initTheme() {
-    const savedTheme = localStorage.getItem('theme');
-    const root = document.documentElement;
-    const themeToggle = document.getElementById('themeToggle');
-    
-    if (savedTheme === 'dark') {
-      root.classList.add('dark');
-      if (themeToggle) themeToggle.innerHTML = '☀️';
-    } else {
-      if (themeToggle) themeToggle.innerHTML = '🌙';
-    }
+  // Mobile nav toggle
+  const navToggle = document.getElementById('navToggle');
+  const siteNav = document.getElementById('siteNav');
+  if (navToggle && siteNav) {
+    navToggle.addEventListener('click', () => {
+      const isOpen = siteNav.classList.toggle('open');
+      navToggle.setAttribute('aria-expanded', String(isOpen));
+    });
+    siteNav.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => {
+        siteNav.classList.remove('open');
+        navToggle.setAttribute('aria-expanded', 'false');
+      });
+    });
   }
 
-  // Toggle theme function
-  function toggleTheme() {
-    const root = document.documentElement;
-    const themeToggle = document.getElementById('themeToggle');
-    const isDark = root.classList.contains('dark');
-    
-    if (isDark) {
-      root.classList.remove('dark');
-      localStorage.setItem('theme', 'light');
-      if (themeToggle) themeToggle.innerHTML = '🌙';
-    } else {
-      root.classList.add('dark');
-      localStorage.setItem('theme', 'dark');
-      if (themeToggle) themeToggle.innerHTML = '☀️';
-    }
-  }
-
-  // Set current year in footer
-  function setCurrentYear() {
-    const yearElement = document.getElementById('year');
-    if (yearElement) {
-      yearElement.textContent = new Date().getFullYear();
-    }
-  }
-
-  // Scroll progress indicator - disabled
-  function initScrollProgress() {
-    // No scroll progress bar
-  }
-
-  // Typewriter effect
-  function initTypewriter() {
-    const typewriterElement = document.getElementById('typewriter-text');
-    if (!typewriterElement) return;
-
-    const text = "Hi, I'm ";
-    const name = "Tim Vyverberg";
-    const exclamation = "!";
-    let index = 0;
-    let phase = 0; // 0: text, 1: name, 2: exclamation
-
-    function type() {
-      if (phase === 0) {
-        // Type "Hi, I'm "
-        if (index < text.length) {
-          typewriterElement.textContent += text.charAt(index);
-          index++;
-          setTimeout(type, 80);
-        } else {
-          phase = 1;
-          index = 0;
-          // Start name with gradient span
-          const nameSpan = document.createElement('span');
-          nameSpan.className = 'gradient-text';
-          nameSpan.id = 'typewriter-name';
-          typewriterElement.appendChild(nameSpan);
-          setTimeout(type, 100);
-        }
-      } else if (phase === 1) {
-        // Type name with gradient
-        const nameSpan = document.getElementById('typewriter-name');
-        if (index < name.length) {
-          nameSpan.textContent += name.charAt(index);
-          index++;
-          setTimeout(type, 100);
-        } else {
-          phase = 2;
-          index = 0;
-          setTimeout(type, 150);
-        }
-      } else if (phase === 2) {
-        // Type exclamation
-        if (index < exclamation.length) {
-          typewriterElement.appendChild(document.createTextNode(exclamation.charAt(index)));
-          index++;
-          setTimeout(type, 80);
-        }
+  // Copy email to clipboard
+  const copyBtn = document.getElementById('copyEmailBtn');
+  const copyLabel = document.getElementById('copyEmailLabel');
+  if (copyBtn && copyLabel) {
+    const originalLabel = copyLabel.textContent;
+    copyBtn.addEventListener('click', async () => {
+      const email = copyBtn.getAttribute('data-email');
+      try {
+        await navigator.clipboard.writeText(email);
+        copyLabel.textContent = 'copied ✓';
+      } catch (err) {
+        window.location.href = `mailto:${email}`;
       }
-    }
-
-    // Start typing after a brief delay
-    setTimeout(type, 300);
-  }
-
-  // Initialize everything when DOM is ready
-  function init() {
-    initTheme();
-    setCurrentYear();
-    initScrollProgress();
-    initTypewriter();
-
-    // Theme toggle button
-    const themeToggle = document.getElementById('themeToggle');
-    if (themeToggle) {
-      themeToggle.addEventListener('click', toggleTheme);
-    }
-
-    // Handle expandable details
-    document.querySelectorAll('details').forEach(detail => {
-      detail.addEventListener('toggle', function() {
-        if (this.open) {
-          // Close other details in the same container
-          const siblings = this.parentElement.querySelectorAll('details');
-          siblings.forEach(sibling => {
-            if (sibling !== this && sibling.open) {
-              sibling.open = false;
-            }
-          });
-        }
-      });
-    });
-
-    // Smooth scroll for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
-        const targetId = this.getAttribute('href');
-        if (targetId === '#') return;
-        
-        const targetElement = document.querySelector(targetId);
-        if (targetElement) {
-          e.preventDefault();
-          targetElement.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-          });
-        }
-      });
+      setTimeout(() => { copyLabel.textContent = originalLabel; }, 1800);
     });
   }
 
-  // Run initialization
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
-  } else {
-    init();
-  }
+  // Modal handling
+  const modalTriggers = document.querySelectorAll('[data-modal-trigger]');
+  modalTriggers.forEach((trigger) => {
+    trigger.addEventListener('click', () => {
+      const modalId = trigger.getAttribute('data-modal-trigger');
+      const modal = document.getElementById(modalId);
+      if (modal) {
+        modal.classList.add('active');
+        modal.setAttribute('aria-hidden', 'false');
+      }
+    });
+  });
 
-  // Expose functions globally for debugging
-  window.app = {
-    toggleTheme,
-    setCurrentYear
-  };
-})();
+  document.querySelectorAll('.modal-overlay').forEach((overlay) => {
+    const close = () => {
+      overlay.classList.remove('active');
+      overlay.setAttribute('aria-hidden', 'true');
+    };
+    overlay.addEventListener('click', (e) => {
+      if (e.target === overlay) close();
+    });
+    overlay.querySelectorAll('.modal-close, .modal-close-btn').forEach((btn) => {
+      btn.addEventListener('click', close);
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') close();
+    });
+  });
+});
