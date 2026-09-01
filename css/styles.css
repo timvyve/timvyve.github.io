@@ -311,6 +311,11 @@ img { max-width: 100%; display: block; }
   gap: 48px;
 }
 
+.course-columns.single {
+  grid-template-columns: 1fr;
+  max-width: 640px;
+}
+
 .course-col-title {
   font-family: var(--mono);
   font-size: 14px;
