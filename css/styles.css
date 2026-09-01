@@ -260,8 +260,7 @@ img { max-width: 100%; display: block; }
   margin: 0 0 40px;
 }
 
-.resume-wrap .section-title,
-.contact-card .section-title { margin-bottom: 16px; }
+.resume-wrap .section-title { margin-bottom: 16px; }
 
 /* ---------- Skills grid ---------- */
 
@@ -309,11 +308,6 @@ img { max-width: 100%; display: block; }
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 48px;
-}
-
-.course-columns.single {
-  grid-template-columns: 1fr;
-  max-width: 640px;
 }
 
 .course-col-title {
@@ -506,6 +500,20 @@ img { max-width: 100%; display: block; }
   border-radius: 50%;
   background: var(--accent);
   box-shadow: 0 0 0 4px var(--accent-dim);
+}
+
+.contact-status-lg {
+  font-size: clamp(26px, 3vw, 34px);
+  font-weight: 700;
+  text-transform: none;
+  letter-spacing: -0.01em;
+  color: var(--text);
+  margin-bottom: 16px;
+}
+
+.contact-status-lg .status-dot {
+  width: 10px;
+  height: 10px;
 }
 
 .contact-actions {
